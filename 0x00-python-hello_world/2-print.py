@@ -1,3 +1,3 @@
-#!/usr/bin/env python
+#!/usr/bin python
 
 print("\"Programming is like building a multilingual puzzle")
