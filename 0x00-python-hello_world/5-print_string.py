@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 str = "Holberton School"
-
-print(str, end='');
-print(str, end='');
+str = str + str +str
 print(str);
 print(str[:9]);
