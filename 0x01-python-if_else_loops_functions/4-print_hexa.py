@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-for n in range(0, 98):
-	print(f"{n} = {hex(n)}");
+for n in range(0, 99):
+    print("{} = {}".format(n, format(n, '#x')));
 	
