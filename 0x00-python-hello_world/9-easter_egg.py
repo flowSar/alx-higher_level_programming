@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-print("The Zen of Python”)
+print("The Zen of Python")
