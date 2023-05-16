@@ -12,7 +12,7 @@ def print_matrix_integer(matrix=[[]]):
     for lst in matrix:
     	i = 0
     	for etm in lst:
-    		print("{}".format(etm))
+    		print("{:d}".format(etm), end='')
     		if i < len(lst) -1:
     			print("{}".format(" "), end = '')
     		i += 1
