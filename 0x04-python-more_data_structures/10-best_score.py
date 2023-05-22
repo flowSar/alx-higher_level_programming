@@ -9,5 +9,4 @@ def best_score(a_dictionary):
         if a_dictionary[key] > tmp:
             tmp = a_dictionary[key]
             ky = key
-
     return ky
