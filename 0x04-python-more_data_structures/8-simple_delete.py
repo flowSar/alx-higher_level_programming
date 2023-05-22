@@ -6,5 +6,5 @@ def simple_delete(a_dictionary, key=""):
         if ky == key:
             found = 0
     if found == 0:
-    	del a_dictionary[key]
+        del a_dictionary[key]
     return a_dictionary
