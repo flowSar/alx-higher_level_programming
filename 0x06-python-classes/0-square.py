@@ -2,6 +2,9 @@
 """
 this module have only one class
 """
+
+
+
 class Square:
 	"""
 	Square if an empty class
