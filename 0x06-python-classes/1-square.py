@@ -12,6 +12,6 @@ class Square:
 
     def __init__(self, size):
         """
-        Instantiate '_size' attribute
+        Instantiate '_size' attribute with size
         """
         self.__size = size
