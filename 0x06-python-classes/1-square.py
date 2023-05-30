@@ -6,11 +6,11 @@ In this module has one empty class names Square
 
 class Square:
 	"""
-	private variable '_size'
+	this is class named square
 	"""
     _size = None
     def __init__(self, size=0):
     	"""
-    	set 'size 'to variable '_size'
+    	Instantiate _size attribute with size 
     	"""
         self._size = size
