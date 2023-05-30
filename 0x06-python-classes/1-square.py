@@ -1,17 +1,21 @@
 #!/usr/bin/python3
 """
 This is module-level documentation
-In this module has one empty class names Square
+In this module we define a Square
 """
 
+
 class Square:
-	"""
-	this is class named 'square'
-	has a private attribute names '_size'
-	"""
-    _size = None
-    def __init__(self, size=0):
-    	"""
-    	Instantiate '_size' attribute with 'size' 
-    	"""
-        self._size = size
+    """
+    This is a'Square'
+    Has a private attribute 'size'
+    """
+
+    __size = None
+
+    def __init__(self, size):
+        """
+        Instantiate 'size' attribute
+        """
+
+        self.__size = size
