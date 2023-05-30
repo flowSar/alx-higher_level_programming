@@ -5,8 +5,7 @@ In this module we define a Square
 """
 class Square:
     """
-    This is a'Square'
-    Has a private attribute 'size'
+    This is a'Square' with private variable '_size'
     """
     __size = None
 
