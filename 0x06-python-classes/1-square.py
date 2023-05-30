@@ -8,12 +8,10 @@ class Square:
     This is a'Square'
     Has a private attribute 'size'
     """
-
     __size = None
 
     def __init__(self, size):
         """
         Instantiate 'size' attribute
         """
-
         self.__size = size
