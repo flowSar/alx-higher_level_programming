@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 class Square:
-    _size = None
+    __size = None
     def __init__(self, size=0):
-        self._size = size
+        self.__size = size
         if not isinstance(size, int):
         	raise TypeError("size must be an integer")
         elif size < 0:
