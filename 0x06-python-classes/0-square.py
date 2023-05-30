@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
-this module have only one class
+This is module-level documentation
+In this module has one empty class names Square
 """
 
 
-
 class Square:
-	"""
-	Square if an empty class
-	"""
+    """
+    This is an empty class named Square
+    """
     def __init__(self):
         """
-        __init__ is an empty init function
+        This is an empty init function
         """
         pass
