@@ -7,23 +7,16 @@ class Square:
     """ this is the class Square.
     __size is private attribute.
     """
-    __size = None
     def __init__(self, size=0):
         """
         Instantiate '_size' attribute with size.
         """
-        self.size = size
-        self.__size = size
         if not isinstance(size, int):
-            """
-            raise exception TypeError if size isn't int.
-            """
             raise TypeError("size must be an integer")
         elif size < 0:
-            """
-            raise exception ValueError if size less than 0.
-            """
             raise ValueError("size must be >= 0")
+        else:
+        	self.size = size
 
     def area(self):
         """
@@ -33,6 +26,11 @@ class Square:
         """
         return self.__size * self.__size
 
+    @property
+    def size(self):
+    	return self.__size
+
+    @size.setter
     def size(self, value):
         """
         this function set a new size value.
