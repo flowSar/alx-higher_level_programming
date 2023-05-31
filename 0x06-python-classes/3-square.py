@@ -3,11 +3,14 @@
 This is module-level documentation
 In this module we define a Square
 """
+
+
 class Square:
     """ this is the class Square.
     __size is private attribute.
     """
     __size = None
+
     def __init__(self, size=0):
         """
         Instantiate '_size' attribute with size.
