@@ -22,5 +22,4 @@ class Square:
             """
             raise exception ValueError if size less than 0.
             """
-
             raise ValueError("size must be >= 0")
