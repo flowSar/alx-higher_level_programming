@@ -77,9 +77,16 @@ class Rectangle:
     		return 2 * (self.height + self.width)
 
     def __str__(self):
+        shape = """"""
+        if self.width == 0 or self.height == 0:
+        	return shape
         for i in range(self.height):
             for j in range(self.width):
-                return "#"
+                shape += "#"
+            if i < self.height - 1:
+                shape += "\n"
+        return shape
+                
 
 my_rectangle = Rectangle(2, 4)
 print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
