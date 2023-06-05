@@ -3,7 +3,6 @@
 This is module-level documentation
 In this module has one empty class names Rectangle.
 """
-
 class Rectangle:
 
     def __init__(self, width=0, height=0):
