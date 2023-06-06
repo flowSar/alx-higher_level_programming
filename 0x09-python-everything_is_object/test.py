@@ -12,8 +12,10 @@ class User:
 
 if __name__ == '__main__':
 	
-	x = [1,2,3,4]
-	y = [5,6,7,8]
+	def assign_value(n, v):
+	    n = v
 
-	User.increment(x, y)
-	print(x)
+	l1 = [1, 2, 3]
+	l2 = [4, 5, 6]
+	assign_value(l1, l2)
+	print(l1)
