@@ -4,14 +4,15 @@ This is module-level documentation
 In this module has one empty class names Rectangle.
 """
 
+
 class Rectangle:
     """
     This is a class named Rectangle
     """
     def __init__(self, width=0, height=0):
-    	self.width = width
-    	self.height = height
-        
+        self.width = width
+        self.height = height
+
     @property
     def width(self):
         """getter function for width."""

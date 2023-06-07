@@ -4,14 +4,15 @@ This is module-level documentation
 In this module has one empty class names Rectangle.
 """
 
+
 class Rectangle:
     """
     This is a class named Rectangle
     """
     def __init__(self, width=0, height=0):
-    	self.width = width
-    	self.height = height
-        
+        self.width = width
+        self.height = height
+
     @property
     def width(self):
         """getter function for width."""
@@ -71,18 +72,18 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-    	"""
+        """
         calculate the perimeter of a Rectangle.
-    	"""
-    	if self.height == 0 or self.width == 0:
-    		return 0
-    	else:
-    		return 2 * (self.height + self.width)
+        """
+        if self.height == 0 or self.width == 0:
+            return 0
+        else:
+            return 2 * (self.height + self.width)
 
     def __str__(self):
         shape = """"""
         if self.width == 0 or self.height == 0:
-        	return shape
+            return shape
         for i in range(self.height):
             for j in range(self.width):
                 shape += "#"
