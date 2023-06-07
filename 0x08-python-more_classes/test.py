@@ -9,5 +9,5 @@ class Person:
         return "hello "+self.name+" !"
 
 
-u = Person("brahim")
-print(u)
+a = (1, )
+print(type(a))

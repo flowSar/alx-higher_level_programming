@@ -3,6 +3,7 @@
 This is module-level documentation
 In this module has one empty class names Rectangle.
 """
+
 class Rectangle:
     """
     This is a class named Rectangle
@@ -77,14 +78,3 @@ class Rectangle:
     		return 0
     	else:
     		return 2 * (self.height + self.width)
-
-    def __str__(self):
-        shape = """"""
-        if self.width == 0 or self.height == 0:
-        	return shape
-        for i in range(self.height):
-            for j in range(self.width):
-                shape += "#"
-            if i < self.height - 1:
-                shape += "\n"
-        return shape
