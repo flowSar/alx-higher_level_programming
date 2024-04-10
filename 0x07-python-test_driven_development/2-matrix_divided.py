@@ -27,8 +27,8 @@ def matrix_divided(matrix, div):
         for elm in mat:
             row_number += 1
             if not isinstance(elm, int | float):
-                return TypeError("""matrix must be a matrix
-                    (list of lists) of integers/floats""")
+                return TypeError("""matrix must be a matrix"""
+                                 """(list of lists) of integers/floats""")
             value = format(elm/div, ".2f")
             inside_matrix += [float(value)]
         if row_number != first_row:
