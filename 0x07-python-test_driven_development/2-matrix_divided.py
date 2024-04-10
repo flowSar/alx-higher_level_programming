@@ -5,8 +5,6 @@ def matrix_divided(matrix, div):
 
     """ function divides all elements of a matrix"""
 
-    if div == 0:
-        print("division by zero")
 
     new_matrix = []
     inside_matrix = []

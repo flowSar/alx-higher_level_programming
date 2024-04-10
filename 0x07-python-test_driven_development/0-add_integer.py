@@ -4,7 +4,15 @@
 
 
 def add_integer(a, b=98):
+    """
+        this function take two argument and return sum
+        Args:
+            a: first argument
+            b: scon argument
 
+        Return:
+            the sum of a and b
+    """
     try:
         a = int(a)
     except Exception as e:
