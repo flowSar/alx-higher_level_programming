@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
+""" function divides all elements of a matrix by div """
+
 
 def matrix_divided(matrix, div):
 
     """
-        function divides all elements of a matrix bby div
+        function divides all elements of a matrix by div
 
         Args:
             matrix: matrix
