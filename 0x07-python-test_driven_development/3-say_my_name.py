@@ -10,9 +10,9 @@ def say_my_name(first_name, last_name=""):
             last_name: last name
 
     """
-    if not instance(first_name, str):
+    if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
-    elif not instance(last_name, str):
+    elif not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
     else:
         print("My name is {:s} {:s}".format(first_name, last_name))
