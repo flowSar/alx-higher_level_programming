@@ -1,3 +1,9 @@
-s1 = "Best School"
-s2 = "Best School"
-print(s1 is s2)
+#!/usr/bin/python3
+""" Doc """
+
+add_integer = __import__('0-add_integer').add_integer
+
+try:
+    print(add_integer(1, "2"))
+except Exception as e:
+    print(e)
