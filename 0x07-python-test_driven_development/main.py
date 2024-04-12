@@ -3,6 +3,9 @@
 
 matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-matrix = [[3, 8], [12, 11]]
-print(matrix_divided(matrix, -3))
-print(matrix)
+try:
+    matrix = [[3, 9], [12, 15]]
+    print(matrix_divided(matrix, 0))
+    print(matrix)
+except Exception as e:
+    print(e)

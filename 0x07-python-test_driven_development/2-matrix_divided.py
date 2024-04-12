@@ -21,9 +21,9 @@ def matrix_divided(matrix, div):
     first_row = len(matrix[0])
     row_number = 0
     if not isinstance(div, int | float):
-        raise TypeError("div must be a number\n")
+        raise TypeError("div must be a number \n")
     if div == 0:
-        raise ZeroDivisionError("division by zero\n")
+        raise ZeroDivisionError("division by zero")
 
     for mat in matrix:
         for elm in mat:
@@ -38,5 +38,6 @@ def matrix_divided(matrix, div):
         row_number = 0
         new_matrix += [inside_matrix]
         inside_matrix = []
+
 
     return new_matrix
