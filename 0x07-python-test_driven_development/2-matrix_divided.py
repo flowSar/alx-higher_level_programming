@@ -34,7 +34,7 @@ def matrix_divided(matrix, div):
             value = format(elm/div, ".2f")
             inside_matrix += [float(value)]
         if row_number != first_row:
-            raise TypeError("Each row of the matrix must have the same size'n")
+            raise TypeError("Each row of the matrix must have the same size\n")
         row_number = 0
         new_matrix += [inside_matrix]
         inside_matrix = []
