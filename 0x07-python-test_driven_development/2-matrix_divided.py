@@ -21,7 +21,7 @@ def matrix_divided(matrix, div):
     first_row = len(matrix[0])
     row_number = 0
     if not isinstance(div, int | float):
-        raise TypeError("div must be a number \n")
+        raise TypeError("div must be a number ")
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
