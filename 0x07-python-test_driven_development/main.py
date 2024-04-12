@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ Doc """
 
-add_integer = __import__('0-add_integer').add_integer
+matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-try:
-    print(add_integer(1, "2"))
-except Exception as e:
-    print(e)
+matrix = [
+    [3]
+]
+print(matrix_divided(matrix, 3))
+print(matrix)

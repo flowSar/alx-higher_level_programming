@@ -40,18 +40,3 @@ def matrix_divided(matrix, div):
         inside_matrix = []
 
     return new_matrix
-
-
-try:
-    matrix = [[3, "9"], [12, 3]]
-    print(matrix_divided(matrix, 2))
-    print(matrix)
-except Exception as e:
-    print(e)
-
-try:
-    matrix = [[3, 9], [12, 3]]
-    print(matrix_divided(matrix, "2"))
-    print(matrix)
-except Exception as e:
-    print(e)
