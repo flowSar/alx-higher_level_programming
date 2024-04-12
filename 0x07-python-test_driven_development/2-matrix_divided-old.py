@@ -12,4 +12,11 @@ def matrix_divided(matrix, div):
     	inside_matrix = []
 
     return new_matrix
-   
+
+
+
+matrix = [
+    [3]
+]
+print(matrix_divided(matrix, 3))
+print(matrix)

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ Doc """
 
-matrix_divided = __import__('2-matrix_divided').matrix_divided
-
-try:
-    matrix = [[3, 9], [12, 15]]
-    print(matrix_divided(matrix, 0))
-    print(matrix)
-except Exception as e:
-    print(e)
+def say_my_name(first_name, last_name=""):
+    """ Doc """
+    if type(first_name) is not str:
+        raise TypeError("first_name must be a string")
+    #if type(last_name) is not str:
+    #    raise TypeError("last_name must be a string")
+    #print("My name is {:s} {:s}".format(first_name, last_name))
+    print("My name is {:s} {}".format(first_name, last_name))
+    
