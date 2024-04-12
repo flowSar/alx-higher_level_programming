@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
+""" function print square of #"""
+
 
 def print_square(size):
-
     """
         function print square of #
         Args:
