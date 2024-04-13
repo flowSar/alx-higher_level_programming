@@ -30,7 +30,7 @@ def matrix_divided(matrix, div):
         for elm in mat:
             row_number += 1
             if not (isinstance(elm, int) or isinstance(elm, float)):
-                raise TypeError("""matrix must be a matrix"""
+                raise TypeError("""matrix must be a matrix """
                                 """(list of lists) of integers/floats""")
             value = format(elm/div, ".2f")
             inside_matrix += [float(value)]
@@ -41,3 +41,18 @@ def matrix_divided(matrix, div):
         inside_matrix = []
 
     return new_matrix
+
+
+try:
+    matrix = [[3, "9"], [12, 3]]
+    print(matrix_divided(matrix, 2))
+    print(matrix)
+except Exception as e:
+    print(e)
+
+try:
+    matrix = [[3, 9], [12, 3]]
+    print(matrix_divided(matrix, "2"))
+    print(matrix)
+except Exception as e:
+    print(e)
