@@ -21,8 +21,10 @@ def max_integer(list=[]):
 class TestMaxInteger(unittest.TestCase):
 
     def test_positive_numbers(self):
-        self.assertEqual(max_integer([1, 4, 5, 6, 7, 0]), 7)
+        self.assertEqual(max_integer([1, 4, 5, 6, 0, 7]), 7)
         self.assertEqual(max_integer([100, 4, 300, 4, 0, 2]), 300)
+        self.assertEqual(max_integer([100, 4, -1, 4, 0, 2]), 100)
+
 
     def test_negative_numbers(self):
         self.assertEqual(max_integer([-1, -4, -3, -2]), -1)
@@ -30,8 +32,3 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_enmpty_lest(self):
         self.assertEqual(max_integer([]), None)
-        self.assertEqual(max_integer([0, -1, -2, -3]), 0)
-
-
-if __name__ == '__main__':
-    unittest.main()
