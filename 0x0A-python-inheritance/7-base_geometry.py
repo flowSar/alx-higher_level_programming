@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+    this module contains a class named BaseGeometry
+    and this BaseGeometry have two method one for
+    area and the second for integer validation
+
+"""
+
 
 class BaseGeometry:
     """class named BaseGeometry """
@@ -10,6 +17,10 @@ class BaseGeometry:
         """
             function raise exception in two caces when value is less than 0
             and when value is not integer.
+
+            Args:
+                name: is name
+                value: is number
         """
         if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
