@@ -21,8 +21,10 @@ class BaseGeometry:
             Args:
                 name: is name
                 value: is number
+            Return:
+                doesn't return anything
         """
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
