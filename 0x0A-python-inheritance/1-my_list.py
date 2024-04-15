@@ -6,7 +6,7 @@ In this module has one class names MyList.
 
 
 class MyList(list):
-    """MyList is a subclass of list"""
+
     def print_sorted(self):
         """sort a list and print it"""
         my_list = [elm for elm in self]
