@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""this module have a function for checking if the object
-    is an inheritence of a class """
+"""
+    this module have a function for checking if the object
+    is an inheritance of a class
+"""
 
 
 def inherits_from(obj, a_class):
@@ -9,7 +11,7 @@ def inherits_from(obj, a_class):
     inherited (directly or indirectly) from the specified class and
     return True it it's and False if not
     we're not checking if obj is instance of a_class that was I put
-    if statment to check the exact instance 
+    if statment to check the exact instance
     this function only check the inheritance not instance
 
     Args:
