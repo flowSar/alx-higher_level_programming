@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This is module-level documentation
-In this module has one class names MyList.
+This class inherits from the built-in list class and extends it with a
+    method to print the elements of the list in sorted order.
 """
 
 
