@@ -10,7 +10,7 @@
 class BaseGeometry:
     """class named BaseGeometry """
     def area(self):
-        """empty function raise Exception"""
+        """area method have only one function is raising exception"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
