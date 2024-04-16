@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
 """
     this module continue a Rectangle class  with constractor method
     and he's a subclass on BaseGeometry class
 """
+
+# Importing the BaseGeometry class from the 7-base_geometry module
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
