@@ -1,15 +1,36 @@
 #!/usr/bin/python3
+"""
+    this module continue a Rectangle class  with constractor method
+    and he's a subclass on Rectangle class
+"""
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-class Rectangle(BaseGeometry):
+Rectangle = __import__('9-rectangle').Rectangle
 
-    """Rectangle is a subclass of BaseGeometry"""
-    __width = 0
-    __height = 0
-    def __init__(self, width, height):
-        if type(width) is not int:
-            raise TypeError("width must be an integer")
-        self.__width = width
-        if type(height)is not int:
-            raise TypeError("height must be an integer")
-        self.__height = height
+
+class Square(Rectangle):
+
+    """
+        Rectangle is a subclass of Rectangle
+        Attribute:
+            __size: size of square
+
+    """
+
+    def __init__(self, size):
+        super().__init__(size, size)
+        self.__size = size
+        self.integer_validator("size", self.__size)
+
+    def area(self):
+        """
+            this function is implementation of area function from superclass
+            Return:
+                return the area of Square
+        """
+        return self.__size * self.__size
+
+    def __str__(self):
+        """
+            this function is a magic function that print instance of this class
+        """
+        return "[Square] "+str(self.__size)+"/"+str(self.__size)
