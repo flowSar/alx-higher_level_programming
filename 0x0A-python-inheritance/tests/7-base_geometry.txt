@@ -51,8 +51,8 @@
 ... 
 [TypeError] age must be an integer
 >>> try:
-...     bg.integer_validator("age")
+...     bg.integer_validator()
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 ... 
-[TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+[ValueError]  must be greater than 0
