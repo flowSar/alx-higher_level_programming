@@ -13,7 +13,7 @@ def write_file(filename="", text=""):
         text: text that will write to file.
     """
     read_number = 0
-    with open(filename, "w") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         read_number = f.write(text)
 
     return read_number
