@@ -16,13 +16,9 @@ if len(sys.argv) > 1:
     for item in sys.argv[1:]:
         my_list.append(item)
 
+with open("python_list.json", 'w') as file:
+    json.dump(my_list, file)
 
 loaded_data = load_from_json.load_from_json_file("python_list.json")
-if loaded_data == None:
-	loaded_data = []
-loaded_data += my_list
-
-with open("python_list.json", 'w') as file:
-    json.dump(loaded_data, file)
 
 save_to_json.save_to_json_file(loaded_data, "add_item.json")

@@ -13,5 +13,5 @@ def save_to_json_file(my_obj, filename):
             my_obj: dictionary object.
             filename: filename or a path of a file.
     """
-    with open(filename, "w") as f:
+    with open(filename, "w+") as f:
         json.dump(my_obj, f)

@@ -16,7 +16,5 @@ def load_from_json_file(filename):
     with open(filename, "r") as f:
         json_data = f.read()
 
-    if json_data == "":
-        return None
     json_object = json.loads(json_data)
     return json_object
