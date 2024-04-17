@@ -2,7 +2,7 @@
 """
 student with first name, last name, and age attributes.
 Attributes:
-    first_name (: The first name of the student.
+    first_name : The first name of the student.
     last_name: The last name of the student.
     age : The age of the student.
 """
@@ -42,5 +42,6 @@ class Student:
         return students
 
     def reload_from_json(self, json):
+        """this method assing value to student instance"""
         if len(json) > 1:
             self.__init__(json["first_name"], json["last_name"], json["age"])
