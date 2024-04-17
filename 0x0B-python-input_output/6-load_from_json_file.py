@@ -12,7 +12,7 @@ def load_from_json_file(filename):
     Args:
         filename: filename or a path of a file.
     """
-    # json_data = ""
+    # json_data = """
     with open(filename, "r") as f:
         json_data = f.read()
 
