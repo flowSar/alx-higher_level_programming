@@ -14,6 +14,6 @@ def write_file(filename="", text=""):
     """
     read_number = 0
     with open(filename, "w") as f:
-    	read_number = f.write(text)
+        read_number = f.write(text)
 
     return read_number
