@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-
-In this module has one function names load_from_json_file.
+In this module append a new data to json file 
+appending new data to old list using json
 """
 import json
 import sys
