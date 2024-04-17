@@ -18,6 +18,8 @@ if len(sys.argv) > 1:
 
 
 loaded_data = load_from_json.load_from_json_file("python_list.json")
+if loaded_data == None:
+	loaded_data = []
 loaded_data += my_list
 
 with open("python_list.json", 'w') as file:
