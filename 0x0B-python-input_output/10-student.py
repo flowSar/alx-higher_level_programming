@@ -9,9 +9,9 @@ class Student:
     """
     student with first name, last name, and age attributes.
     Attributes:
-        first_name (str): The first name of the student.
-        last_name (str): The last name of the student.
-        age (int): The age of the student.
+        first_name : The first name of the student.
+        last_name : The last name of the student.
+        age : The age of the student.
     """
 
     def __init__(self, first_name, last_name, age):
@@ -22,10 +22,10 @@ class Student:
 
     def to_json(self, attrs=None):
         """
-            function return a student attribute as a dictionary
-
-            Return: return a dictionary containing the student's
-                first name, last name, and age.
+            function return a student attribute as a
+            dictionary basd on given key
+            Return: return a student infor based on giving key
+                first name or last name or and age.
         """
         students = {"first_name": self.first_name,
                     "last_name": self.last_name,
