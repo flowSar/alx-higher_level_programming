@@ -42,4 +42,5 @@ class Student:
         return students
 
     def reload_from_json(self, json):
-        self.__init__(json["first_name"], json["last_name"], json["age"])
+        if len(json) > 1:
+            self.__init__(json["first_name"], json["last_name"], json["age"])
