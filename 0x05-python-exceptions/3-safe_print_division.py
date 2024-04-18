@@ -2,7 +2,7 @@
 
 
 def safe_print_division(a, b):
-	try:
-		pass
-	except Exception as e:
-		raise e
+    try:
+        pass
+    except Exception as e:
+        raise e
