@@ -4,7 +4,7 @@ if __name__ == "__main__":
     import sys as syst
     argc = len(syst.argv)
     if argc < 4:
-    	print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     else:
         if syst.argv[2] == '+':
             a = int(syst.argv[1])
