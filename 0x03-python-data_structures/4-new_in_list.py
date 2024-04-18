@@ -3,6 +3,9 @@
 
 def new_in_list(my_list, idx, element):
     length = len(my_list)
+
+    if idx > length - 1:
+        return my_list
     new_ls = [None for _ in range(length)]
     i = 0
     for el in my_list:
