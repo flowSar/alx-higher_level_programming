@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def print_matrix_integer(matrix=[[]]):
     length = len(matrix)
     length_in = len(matrix[0])
@@ -13,7 +14,7 @@ def print_matrix_integer(matrix=[[]]):
         i = 0
         for etm in lst:
             print("{:d}".format(etm), end='')
-            if i < len(lst) -1:
-                print("{}".format(" "), end = '')
+            if i < len(lst) - 1:
+                print("{}".format(" "), end='')
             i += 1
         print("{}".format(""))
