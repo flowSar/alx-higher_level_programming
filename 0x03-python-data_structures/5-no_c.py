@@ -2,8 +2,12 @@
 
 
 def no_c(my_string):
-    new = ""
+
+    new_string = ""
+
     for el in my_string:
-        if el != 'c' and el != 'C':
-            new += el
-        return new
+        if el == 'c' or el == 'C':
+            continue
+        new_string += el
+
+    return new_string
