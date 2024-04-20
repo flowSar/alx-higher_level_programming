@@ -109,26 +109,46 @@ class Rectangle(Base):
         piece2 = f" - {self.__width}/{self.__height}"
         return piece1 + piece2
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-            this function for asinging argument to each attribute
-            of instance .
+            this function asigning argument to each attribute
+            of object instance .
             Attribute:
                 *args: this can pass multiple input from id
                 width, height, x, y
+                **kwrgs: this can pass multiple input from id
+                width, height, x, y but by key they aren't organized
         """
-        length = len(args)
-        if length == 1:
-            self.id = args[0]
-        elif length == 2:
-            check_for_exception(args[1], "width")
-            self.__width = args[1]
-        elif length == 3:
-            check_for_exception(args[2], "height")
-            self.__height = args[2]
-        elif length == 4:
-            check_for_exception(args[3], "x")
-            self.__x = args[3]
-        elif length == 5:
-            check_for_exception(args[4], "y")
-            self.__y = args[4]
+        args_length = len(args)
+
+        if args_length == 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    check_for_exception(value, key)
+                    self.__width = value
+                elif key == "height":
+                    check_for_exception(value, key)
+                    self.__height = value
+                elif key == "x":
+                    check_for_exception(value, key)
+                    self.__x = value
+                elif key == "y":
+                    check_for_exception(value, key)
+                    self.__y = value
+        else:
+            if args_length == 1:
+                self.id = args[0]
+            elif args_length == 2:
+                check_for_exception(args[1], "width")
+                self.__width = args[1]
+            elif args_length == 3:
+                check_for_exception(args[2], "height")
+                self.__height = args[2]
+            elif args_length == 4:
+                check_for_exception(args[3], "x")
+                self.__x = args[3]
+            elif args_length == 5:
+                check_for_exception(args[4], "y")
+                self.__y = args[4]
