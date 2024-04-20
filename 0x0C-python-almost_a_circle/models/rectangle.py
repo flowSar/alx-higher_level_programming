@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-
 from base import Base
+"""
+    rectangle module
+"""
 
 
 class Rectangle(Base):
@@ -91,3 +93,19 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = y
+
+    def area(self):
+        """rear method return area of a rectangle"""
+        return self.__width * self.__height
+
+    def display(self):
+        """display function draw of represent a rectange with '#' """
+        for h in range(self.__height):
+            for w in range(self.__width):
+                print("#", end="")
+            print("")
+
+    def __str__(self):
+        piece1 = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
+        piece2 = f" - {self.__width}/{self.__height}"
+        return piece1 + piece2
