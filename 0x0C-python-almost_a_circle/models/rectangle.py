@@ -4,9 +4,10 @@ from base import Base
     rectangle module
 """
 
+
 def check_for_exception(value, name):
     """
-    this function check if the value is suitable 
+    this function check if the value is suitable
     for the operation that we are doing in this class
     we check if value is int or it is >= 0 in some cases
     and we raise error is this value doesn't correspond with
@@ -103,6 +104,31 @@ class Rectangle(Base):
             print("")
 
     def __str__(self):
+        """str is a mgic method for printing object"""
         piece1 = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
         piece2 = f" - {self.__width}/{self.__height}"
         return piece1 + piece2
+
+    def update(self, *args):
+        """
+            this function for asinging argument to each attribute
+            of instance .
+            Attribute:
+                *args: this can pass multiple input from id
+                width, height, x, y
+        """
+        length = len(args)
+        if length == 1:
+            self.id = args[0]
+        elif length == 2:
+            check_for_exception(args[1], "width")
+            self.__width = args[1]
+        elif length == 3:
+            check_for_exception(args[2], "height")
+            self.__height = args[2]
+        elif length == 4:
+            check_for_exception(args[3], "x")
+            self.__x = args[3]
+        elif length == 5:
+            check_for_exception(args[4], "y")
+            self.__y = args[4]
