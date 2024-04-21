@@ -2,9 +2,8 @@
 
 import unittest
 import sys
-sys.path.append("../../")
-
 from models.base import Base
+
 
 class TestBase(unittest.TestCase):
 
