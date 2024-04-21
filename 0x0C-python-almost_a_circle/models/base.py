@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import json
 """
     this is a base module
     we have her a Base calsss inside the class we have
@@ -27,3 +27,38 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        length = len(list_dictionaries)
+        if list_dictionaries is None or length == 0:
+            return "[]"
+        json_data = json.dumps(list_dictionaries)
+        return json_data
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        dic_list = []
+        if list_objs is None:
+            data = json.loads("[]")
+            with open(f"{cls.__name__}.json", "w") as file:
+                json.dump(data, file)
+        else:
+            for obj in list_objs:
+                dic_list.append(obj.to_dictionary())
+            json_string = cls.to_json_string(dic_list)
+            data = json.loads(json_string)
+            with open(f"{cls.__name__}.json", "w") as f:
+                json.dump(data, f)
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None:
+            return []
+        else:
+            json_data = json.loads(json_string)
+            return json_data
+    
+    @classmethod
+    def create(cls, **dictionary):
+        pass
