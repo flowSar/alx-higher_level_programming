@@ -138,17 +138,25 @@ class Rectangle(Base):
                     check_for_exception(value, key)
                     self.__y = value
         else:
-            if args_length == 1:
+            if args_length >= 1:
                 self.id = args[0]
-            elif args_length == 2:
+            if args_length >= 2:
                 check_for_exception(args[1], "width")
                 self.__width = args[1]
-            elif args_length == 3:
+            if args_length >= 3:
                 check_for_exception(args[2], "height")
                 self.__height = args[2]
-            elif args_length == 4:
+            if args_length >= 4:
                 check_for_exception(args[3], "x")
                 self.__x = args[3]
-            elif args_length == 5:
+            if args_length >= 5:
                 check_for_exception(args[4], "y")
                 self.__y = args[4]
+
+    def to_dictionary(self):
+        rect_dictionary = {
+            "id": self.id, "width": self.width,
+            "height": self.height, "x": self.x,
+            "y": self.y
+        }
+        return rect_dictionary
