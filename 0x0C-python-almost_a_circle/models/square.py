@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-
-from models.rectangle import Rectangle
-from models.rectangle import check_for_exception
 """
     module square fontinue squre class and it
     methode that handle ths class
 """
+from models.rectangle import Rectangle
+from models.rectangle import check_for_exception
 
 
 class Square(Rectangle):

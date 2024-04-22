@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-
-import unittest
-from models.base import Base
-from models.rectangle import Rectangle
 """
     this module is for testtunite of base class
 """
+import unittest
+from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):

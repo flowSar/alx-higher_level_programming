@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from models.base import Base
 """
     rectangle module has multiple function
     that handle Rectangle attribute like
@@ -9,6 +8,7 @@ from models.base import Base
     rectangle of "#" and methode for claculating
     the area of rectangle
 """
+from models.base import Base
 
 
 def check_for_exception(value, name):

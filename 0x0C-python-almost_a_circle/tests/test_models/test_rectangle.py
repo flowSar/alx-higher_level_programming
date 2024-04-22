@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-
-import unittest
-from models.rectangle import Rectangle
-from models.rectangle import check_for_exception
 """
     this module for testing rectangle module
 """
+import unittest
+from models.rectangle import Rectangle
+from models.rectangle import check_for_exception
+
 
 
 class TestRectangle(unittest.TestCase):
