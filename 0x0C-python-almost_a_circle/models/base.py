@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 import json
 """
-    this is a base module
-    we have her a Base calsss inside the class we have
+    this is a base module we have her a Base calsss inside the class we have
     __init__ methode that have id argument
 """
 
 
 class Base:
     """
-        this  Base has different methode that hadle
-        this class methodes for save object attribute
-        to json file ot csv file and for reading from those files
+    this  Base has different methode that hadle this class methodes for
+    save object attribute to json file ot csv file and for reading from
+    those files
     """
     """private attribute for counting instance of this class"""
     __nb_objects = 0
@@ -31,12 +30,11 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-            this function turn list_dictionaries
-            into string with json.dumps()
-            and return it if it's not ampty
-            Return:
-                jsonstring if list_dictionaries  not empty
-                and [] if list_dictionaries is empty
+        this function turn list_dictionaries into string with json.dumps()
+        and return it if it's not ampty
+        Return:
+        jsonstring if list_dictionaries  not empty and [] if list_dictionaries
+        is empty
         """
 
         if list_dictionaries is None:
@@ -50,9 +48,9 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-            this function save objecsts attributes in json file
-            if list_object empt we create file and add write
-            [] inside the file that me the file is empty
+            this function save objecsts attributes in json file if list_object
+            empt we create file and add write [] inside the file that me the
+            file is empty
             Attributes:
                 list_objs: list of object, Rectangle or Square
                 or both.

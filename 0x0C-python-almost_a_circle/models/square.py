@@ -2,11 +2,20 @@
 
 from models.rectangle import Rectangle
 from models.rectangle import check_for_exception
+"""
+    module square fontinue squre class and it
+    methode that handle ths class
+"""
 
 
 class Square(Rectangle):
-
+    """ Square class is subclass of Recltange has many opveridded
+    function like update for updating attribute and size setter
+    and getter and to_dictionay to pack all object attribute
+    in a dictionary
+    """
     def __init__(self, size, x=0, y=0, id=None):
+        """this function of initilalize object instance"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -15,16 +24,22 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """size getter"""
         return self.width
 
     @size.setter
     def size(self, size):
+        """size setter"""
         check_for_exception(size, "width")
         self.width = size
         self.height = size
 
     def update(self, *args, **kwargs):
-
+        """ this function update object instance attribute with new attribute
+            Attributes: args : this is tuple of attribute
+                        kwargs: attribute packed in dictionary
+            Return: None
+        """
         args_length = len(args)
         if args_length >= 1:
             if args_length >= 1:
@@ -50,4 +65,7 @@ class Square(Rectangle):
                     self.y = value
 
     def to_dictionary(self):
+        """
+        this function return all obkect instance attribute in a dictionary
+        """
         return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
