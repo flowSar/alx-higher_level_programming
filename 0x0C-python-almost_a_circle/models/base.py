@@ -58,7 +58,11 @@ class Base:
         else:
             json_data = json.loads(json_string)
             return json_data
-    
+
     @classmethod
     def create(cls, **dictionary):
-        pass
+        rectangle = __import__("rectangle")
+        rectangle = getattr(rectangle, 'Rectangle')
+        dummy_rectangle = rectangle(2, 3, 0, 1, 1)
+        dummy_rectangle.update(**dictionary)
+        return dummy_rectangle
