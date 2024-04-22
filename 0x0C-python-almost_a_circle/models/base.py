@@ -9,15 +9,11 @@ import json
 
 class Base:
     """
-        this __init__ for initializing Base object she receive one argument
-        and asign it to object (is) if id argument(arg)
-        isn't None if it's none we increament
-        __nb__objects and asign it to id
-
-        Attributes:
-        id: id
-        Return: None
+        this  Base has different methode that hadle
+        this class methodes for save object attribute
+        to json file ot csv file and for reading from those files
     """
+    """private attribute for counting instance of this class"""
     __nb_objects = 0
 
     def __init__(self, id=None):
