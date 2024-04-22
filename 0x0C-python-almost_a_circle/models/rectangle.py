@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 from models.base import Base
 """
-    rectangle module
+    rectangle module has multiple function
+    that handle Rectangle attribute like
+    setter and getter method and methode for
+    update attribute and methode for loading all instance attributes
+    in one dictionary and methode for printing
+    rectangle of "#" and methode for claculating
+    the area of rectangle
 """
 
 
@@ -53,37 +59,45 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """width getter"""
         return self.__width
 
     @width.setter
     def width(self, width):
+        """width setter"""
         check_for_exception(width, "width")
         self.__width = width
 
     @property
     def height(self):
+        """height getter"""
         return self.__height
 
     @height.setter
     def height(self, height):
+        """height setter"""
         check_for_exception(height, "height")
         self.__height = height
 
     @property
     def x(self):
+        """x getter"""
         return self.__x
 
     @x.setter
     def x(self, x):
+        """x setter"""
         check_for_exception(x, "x")
         self.__x = x
 
     @property
     def y(self):
+        """y getter"""
         return self.__y
 
     @y.setter
     def y(self, y):
+        """y setter"""
         check_for_exception(y, "y")
         self.__y = y
 
@@ -154,6 +168,12 @@ class Rectangle(Base):
                 self.__y = args[4]
 
     def to_dictionary(self):
+        """
+            this function loads all instance attribute
+            into dictionary and return it
+            Return:
+                dictionary
+        """
         rect_dictionary = {
             "id": self.id, "width": self.width,
             "height": self.height, "x": self.x,
