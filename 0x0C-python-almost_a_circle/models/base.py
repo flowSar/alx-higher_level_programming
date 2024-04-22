@@ -38,14 +38,25 @@ class Base:
                 jsonstring if list_dictionaries  not empty
                 and [] if list_dictionaries is empty
         """
-        length = len(list_dictionaries)
-        if list_dictionaries is None or length == 0:
+
+        if list_dictionaries is None:
             return "[]"
+        length = len(list_dictionaries)
+        if length == 0:
+        	return "[]"
         json_data = json.dumps(list_dictionaries)
         return json_data
 
     @classmethod
     def save_to_file(cls, list_objs):
+    	"""
+			this function save objecsts attributes in json file
+			if list_object empt we create file and add write 
+			[] inside the file that me the file is empty
+			Attributes:
+				list_objs: list of object, Rectangle or Square 
+				or both.
+    	"""
         dic_list = []
         if list_objs is None:
             with open(f"{cls.__name__}.json", "w") as file:
