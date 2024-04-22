@@ -42,4 +42,3 @@ class TestBase(unittest.TestCase):
         pass
 
     def test_from_json_string(self):
-        pass
