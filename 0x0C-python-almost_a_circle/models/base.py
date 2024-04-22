@@ -22,6 +22,11 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """
+            this __init__ for initiliaze the object
+            Attributes:
+                id : id of the instance
+        """
         if id is not None:
             self.id = id
         else:
@@ -70,6 +75,16 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """
+            this method is loads string into jsonobject
+            like turning strign into json_object that we
+            can manipulate
+            Attributes:
+                json_string: json string
+            Return:
+                empty list of json_string is None or
+                return json object of not None
+        """
         if json_string is None:
             return []
         else:
@@ -78,6 +93,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """
+            this function create a dummy object and update its
+            attribute and return it.
+            Attributes:
+                dictionary: dictionary
+            Return:
+                return dummy object
+        """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 2, 2, 6)
             dummy.update(**dictionary)
@@ -175,4 +198,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """
+            this function is still empy because I din't work on it yet
+        """
         pass
