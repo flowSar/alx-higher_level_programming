@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-import json
 """
     this is a base module we have her a Base calsss inside the class we have
     __init__ methode that have id argument
+    class: base
 """
+import json
 
 
 class Base:
@@ -131,6 +132,7 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """
             this function save object attributes to csv file
+            for each rectangle and square
             Attributes:
                 list_objs: list of object that we save their
                 data
