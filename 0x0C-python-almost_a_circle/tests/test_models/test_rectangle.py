@@ -3,10 +3,14 @@
 import unittest
 from models.rectangle import Rectangle
 from models.rectangle import check_for_exception
+"""
+    this module for testing rectangle module
+"""
 
 
 class TestRectangle(unittest.TestCase):
 
+    """this function for testing asignment of id of rectangle instance"""
     def test_init(self):
         rect = Rectangle(1, 4)
         self.assertEqual(rect.id, 1)
@@ -16,6 +20,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.id, 5)
 
     def test_init_exception(self):
+        """
+            this function for test the raised exception in __init__
+            method
+        """
         self.assertRaises(TypeError, Rectangle, "3", 4, 5, 1)
         self.assertRaises(TypeError, Rectangle, 3, "4", 5, 1)
         self.assertRaises(ValueError, Rectangle, -1, 4, 5, 1)
@@ -24,11 +32,19 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(ValueError, Rectangle, 10, 0, 5, 1)
 
     def test_check_for_exception(self):
+        """
+            this function for test the raised exception in
+            check_for_exception method
+        """
         self.assertRaises(TypeError, check_for_exception, "l", "height")
         self.assertRaises(ValueError, check_for_exception, 0, "height")
         self.assertRaises(ValueError, check_for_exception, -1, "height")
 
     def test_set_with_raise_exception(self):
+        """
+            this function test raised exception during asignment of
+            rectangle attribute width
+        """
         with self.assertRaises(TypeError):
             rect = Rectangle(width=3, height=3, x=1, y=6, id=5)
             rect.width = "3"
@@ -40,6 +56,10 @@ class TestRectangle(unittest.TestCase):
             rect2.width = 0
 
     def test_set_height_raise_exception(self):
+        """
+            this function test raised exception during asignment of
+            rectangle attribute height
+        """
         with self.assertRaises(TypeError):
             rect1 = Rectangle(width=4, height=3, x=2, y=1, id=4)
             rect1.height = "k"
@@ -51,6 +71,10 @@ class TestRectangle(unittest.TestCase):
             rect3.height = 0
 
     def test_set_x_raise_exception(self):
+        """
+            this function test raised exception during asignment of
+            rectangle attribute x
+        """
         with self.assertRaises(TypeError):
             rect1 = Rectangle(width=4, height=3, x=1, y=1, id=7)
             rect1.x = "9"
@@ -59,6 +83,10 @@ class TestRectangle(unittest.TestCase):
             rect2.x = -5
 
     def test_set_y_raise_Exception(self):
+        """
+            this function test raised exception during asignment of
+            rectangle attribute y
+        """
         with self.assertRaises(TypeError):
             rect1 = Rectangle(width=4, height=3, x=1, y=1, id=9)
             rect1.y = "1"
@@ -67,21 +95,25 @@ class TestRectangle(unittest.TestCase):
             rect2.y = -100
 
     def test_set_width(self):
+        """ this test funcion for testing asignment of width attribute"""
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         rect.width = 10
         self.assertEqual(rect.width, 10)
 
     def test_set_height(self):
+        """ this test funcion for testing asignment of height attribute"""
         rect = Rectangle(width=4, height=1, x=1, y=1, id=9)
         rect.height = 5
         self.assertEqual(rect.height, 5)
 
     def test_set_x(self):
+        """ this test funcion for testing asignment of x attribute"""
         rect = Rectangle(width=4, height=1, x=1, y=1, id=9)
         rect.x = 0
         self.assertEqual(rect.x, 0)
 
     def test_set_y(self):
+        """ this test funcion for testing asignment of y attribute"""
         rect = Rectangle(width=4, height=1, x=1, y=1, id=9)
         rect.y = 3
         rect.id = 10
@@ -89,35 +121,46 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.y, 3)
 
     def test_get_width(self):
+        """ this test funcion for testing width getter"""
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         self.assertEqual(rect.width, 4)
 
     def test_get_height(self):
+        """ this test funcion for testing height getter"""
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         self.assertEqual(rect.height, 3)
 
     def test_get_x(self):
+        """ this test funcion for testing x getter"""
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         self.assertEqual(rect.x, 1)
 
     def test_get_y(self):
+        """ this test funcion for testing y getter"""
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         self.assertEqual(rect.y, 1)
 
     def test_area(self):
+        """ this test funcion for testing area if it was calculte
+            right
+        """
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         self.assertEqual(rect.area(), 12)
 
     def test_str(self):
+        """this test function for test __str__ function is like
+            what it was suppose to print
+        """
         rect = Rectangle(width=4, height=3, x=1, y=1, id=9)
         msg = "[Rectangle] (9) 1/1 - 4/3"
         result = rect.__str__()
         self.assertEqual(result, msg)
 
-    def test_display(self):
-        pass
-
     def test_update_args(self):
+        """
+            this test function for checking if update was done as
+            was suppose to be using args or tuple
+        """
         rect = Rectangle(4, 2, 1, 2, 23)
         rect.update(9)
         self.assertEqual(rect.id, 9)
@@ -131,6 +174,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.y, 0)
 
     def test_update_kwargs(self):
+        """
+            this test function for checking if update was done as
+            was suppose to be using kwargs or dictionay
+        """
         rect = Rectangle(4, 2, 1, 2, 23)
         rect.update(width=9, x=2, y=7, height=10, id=9)
         self.assertEqual(rect.width, 9)
@@ -154,9 +201,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect3.x, 10)
         self.assertEqual(rect3.y, 20)
         self.assertEqual(rect3.id, 3)
-        
+
     def test_to_dictionary(self):
+        """
+            this test function for checking if the return of
+            to_dictionarywas
+        """
         rect = Rectangle(4, 2, 1, 2, 23)
         result = rect.to_dictionary()
-        dictionary = {"id":23, "width":4, "height":2, "x":1, "y":2}
+        dictionary = {"id": 23, "width": 4, "height": 2, "x": 1, "y": 2}
         self.assertEqual(result, dictionary)

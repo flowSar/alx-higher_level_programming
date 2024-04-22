@@ -3,11 +3,19 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+"""
+    this module is for testtunite of base class
+"""
 
 
 class TestBase(unittest.TestCase):
 
+    """this class for testing all base function"""
+
     def test_init(self):
+        """this function for testing boject id it it wast
+            incremented
+        """
         base1 = Base()
         self.assertEqual(base1.id, 1)
         base2 = Base()
@@ -18,11 +26,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(base4.id, 4)
 
     def test_init_twi(self):
+        """this function for testing id isignment"""
         base5 = Base()
         base5.id = 10
         self.assertEqual(base5.id, 10)
 
     def test_to_json_string(self):
+        """
+            this function for testing to_json_string and see the
+            return valur of the function is like what we expect
+        """
         rect = Rectangle(10, 7, 2, 8, 1)
         dictionary = rect.to_dictionary()
         json_string = rect.to_json_string(dictionary)
@@ -38,7 +51,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_string3, expected3)
 
     def test_save_to_file(self):
+        """this function for teting save_to_file function"""
         pass
 
     def test_from_json_string(self):
+        """this function for teting from_json_string function"""
         pass
