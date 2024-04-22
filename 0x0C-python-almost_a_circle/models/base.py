@@ -30,6 +30,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """
+            this function turn list_dictionaries
+            into string with json.dumps()
+            and return it if it's not ampty
+            Return:
+                jsonstring if list_dictionaries  not empty
+                and [] if list_dictionaries is empty
+        """
         length = len(list_dictionaries)
         if list_dictionaries is None or length == 0:
             return "[]"
@@ -40,16 +48,14 @@ class Base:
     def save_to_file(cls, list_objs):
         dic_list = []
         if list_objs is None:
-            data = json.loads("[]")
             with open(f"{cls.__name__}.json", "w") as file:
-                json.dump(data, file)
+                file.write("[]", file)
         else:
             for obj in list_objs:
                 dic_list.append(obj.to_dictionary())
             json_string = cls.to_json_string(dic_list)
-            data = json.loads(json_string)
-            with open(f"{cls.__name__}.json", "w") as f:
-                json.dump(data, f)
+            with open(f"{cls.__name__}.json", "w+") as f:
+                f.write(json_string)
 
     @staticmethod
     def from_json_string(json_string):
@@ -61,8 +67,101 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        rectangle = __import__("rectangle")
-        rectangle = getattr(rectangle, 'Rectangle')
-        dummy_rectangle = rectangle(2, 3, 0, 1, 1)
-        dummy_rectangle.update(**dictionary)
-        return dummy_rectangle
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 2, 2, 6)
+            dummy.update(**dictionary)
+            return dummy
+        if cls.__name__ == "Square":
+            dummy = cls(2, 0, 0)
+            dummy.update(**dictionary)
+            return dummy
+        return None
+
+    @classmethod
+    def load_from_file(cls):
+        """
+            this function loads data from json file
+            turn it into string with to_json_string
+            and then turn it into object by from_json_string
+            send it to creat method to update the object arrtibute
+            and get a dummy object
+            if not data in the file
+            Return:
+                list pf dummy object ot Null if file empty
+        """
+        file_name = cls.__name__
+        dummy_obj_list = []
+        with open(f"{file_name}.json") as file:
+            json_data = json.load(file)
+        json_data = cls.from_json_string(cls.to_json_string(json_data))
+        if len(json_data) == 0:
+            return []
+        for data in json_data:
+            dummy_obj_list.append(cls.create(**data))
+        return dummy_obj_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+            this function save object attributes to csv file
+            Attributes:
+                list_objs: list of object that we save their
+                data
+        """
+        file_name = cls.__name__
+        if file_name == "Rectangle":
+            for obj in list_objs:
+                obj_dic = obj.to_dictionary()
+                id = obj_dic['id']
+                width = obj_dic['width']
+                height = obj_dic['height']
+                x = obj_dic['x']
+                y = obj_dic['y']
+                csv_data = f"{id}, {width}, {height}, {x}, {y}\n"
+
+                with open(f"{file_name}.csv", "a") as file:
+                    file.write(csv_data)
+        if file_name == "Square":
+            for obj in list_objs:
+                obj_dic = obj.to_dictionary()
+                id = obj_dic['id']
+                size = obj_dic['size']
+                x = obj_dic['x']
+                y = obj_dic['y']
+                csv_data = f"{id}, {size}, {x}, {y}\n"
+
+                with open(f"{file_name}.csv", "a") as file:
+                    file.write(csv_data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+            this function loads data from csv file line
+            by line and then fill it to a empty dictionary
+            and then send it creat() method to get
+            dummy object and update the rectangle attributes
+            create() will return dummy object we collect those objects
+            in a list and return them.
+            this function do this for square and Rectangle
+        """
+        file_name = cls.__name__
+        object_list = []
+        dic_key_rect = ['id', 'width', 'height', 'x', 'y']
+        dic_key_sq = ['id', 'size', 'x', 'y']
+        used_list = []
+        if file_name == "Rectangle":
+            used_list = dic_key_rect
+        elif file_name == "Square":
+            used_list = dic_key_sq
+
+        with open(f"{file_name}.csv", "r") as file:
+            new_dic = {}
+            for line in file:
+                for key, value in zip(used_list, line.strip().split(',')):
+                    new_dic[key] = int(value)
+                object_list.append(cls.create(**new_dic))
+        return object_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        pass
