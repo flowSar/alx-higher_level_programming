@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-from base import Base
+from models.base import Base
 """
     rectangle module
 """
