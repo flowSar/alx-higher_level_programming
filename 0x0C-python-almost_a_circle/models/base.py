@@ -18,7 +18,6 @@ class Base:
         id: id
         Return: None
     """
-    # class attribue
     __nb_objects = 0
 
     def __init__(self, id=None):
