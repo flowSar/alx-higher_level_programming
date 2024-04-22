@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ 1-main """
-from models.rectangle import Rectangle
+from rectangle import Rectangle
 import sys
 
 if __name__ == "__main__":
 
-    print(sys.path)
+
 
     r1 = Rectangle(10, 2)
     print(r1.id)

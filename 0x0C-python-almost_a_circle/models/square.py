@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-from models.rectangle import Rectangle
-from models.rectangle import check_for_exception
+from rectangle import Rectangle
+from rectangle import check_for_exception
 
 
 class Square(Rectangle):
