@@ -195,10 +195,3 @@ class Base:
                     new_dic[key] = int(value)
                 object_list.append(cls.create(**new_dic))
         return object_list
-
-    @staticmethod
-    def draw(list_rectangles, list_squares):
-        """
-            this function is still empy because I din't work on it yet
-        """
-        pass
