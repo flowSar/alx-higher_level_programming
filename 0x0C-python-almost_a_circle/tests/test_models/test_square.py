@@ -3,7 +3,6 @@
 import unittest
 
 
-
 class TestSquare(unittest.TestCase):
     """class for square testing """
     def test_init(self):
