@@ -43,7 +43,7 @@ class Base:
             return "[]"
         length = len(list_dictionaries)
         if length == 0:
-        	return "[]"
+            return "[]"
         json_data = json.dumps(list_dictionaries)
         return json_data
 
@@ -51,12 +51,12 @@ class Base:
     def save_to_file(cls, list_objs):
         """
             this function save objecsts attributes in json file
-            if list_object empt we create file and add write 
+            if list_object empt we create file and add write
             [] inside the file that me the file is empty
             Attributes:
-                list_objs: list of object, Rectangle or Square 
+                list_objs: list of object, Rectangle or Square
                 or both.
-    	"""
+        """
         dic_list = []
         if list_objs is None:
             with open(f"{cls.__name__}.json", "w") as file:
