@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import sys
 from models.base import Base
 """
     rectangle module

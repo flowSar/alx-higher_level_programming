@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import unittest
-import sys
 from models.rectangle import Rectangle
 from models.rectangle import check_for_exception
 
