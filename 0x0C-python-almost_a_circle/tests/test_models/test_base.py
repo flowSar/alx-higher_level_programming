@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-    this module is for testtunite of base class
+    this module is for testtunite of base class and all 
+    it methodes
 """
 import unittest
 from models.base import Base
@@ -9,10 +10,13 @@ from models.rectangle import Rectangle
 
 class TestBase(unittest.TestCase):
 
-    """this class for testing all base function"""
+    """
+        this class for testing all base methodes one by one
+    """
 
     def test_init(self):
-        """this function for testing boject id it it wast
+        """
+            this function for testing object id
             incremented
         """
         base1 = Base()
@@ -25,7 +29,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(base4.id, 4)
 
     def test_init_twi(self):
-        """this function for testing id isignment"""
+        """
+            this function for testing id asignment
+        """
         base5 = Base()
         base5.id = 10
         self.assertEqual(base5.id, 10)
@@ -33,7 +39,8 @@ class TestBase(unittest.TestCase):
     def test_to_json_string(self):
         """
             this function for testing to_json_string and see the
-            return valur of the function is like what we expect
+            return value of the function if it's like what we expected
+            we test 3 cses when input is None or empty list or full list
         """
         rect = Rectangle(10, 7, 2, 8, 1)
         dictionary = rect.to_dictionary()

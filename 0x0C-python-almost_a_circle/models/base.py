@@ -58,8 +58,8 @@ class Base:
         """
         dic_list = []
         if list_objs is None:
-            with open(f"{cls.__name__}.json", "w") as file:
-                file.write("[]", file)
+            with open(f"{cls.__name__}.json", "w+") as file:
+                file.write("[]")
         else:
             for obj in list_objs:
                 dic_list.append(obj.to_dictionary())

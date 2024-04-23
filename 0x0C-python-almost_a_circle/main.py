@@ -1,24 +1,31 @@
 #!/usr/bin/python3
-""" 9-main """
+""" Check """
 from models.square import Square
+import os
+import json
 
-if __name__ == "__main__":
 
-    s1 = Square(5)
-    print(s1)
-    print(s1.area())
-    s1.display()
+file_path = "Square.json"
+if os.path.exists(file_path):
+    os.remove(file_path)
 
-    print("---")
+list_objs = None
+expected_list = []
+Square.save_to_file(list_objs)
 
-    s2 = Square(2, 2)
-    print(s2)
-    print(s2.area())
-    s2.display()
+if not os.path.exists(file_path):
+    print("save_to_file doesn't create a file {}".format(file_path))
+    exit(1)
 
-    print("---")
+with open(file_path, "r") as file:
+    list_json = json.load(file)
 
-    s3 = Square(3, 1, 3)
-    print(s3)
-    print(s3.area())
-    s3.display()
+    if list_json is None:
+        print("Can't parse {} file".format(file_path))
+        exit(1)
+    
+    if expected_list != list_json:
+        print("Wrong serialization: {} instead of {}".format(list_json, expected_list))
+        exit(1)
+
+print("OK", end="")
