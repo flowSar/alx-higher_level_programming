@@ -281,4 +281,3 @@ class TestRectangle(unittest.TestCase):
         dictionary2 = list_Rectangle_output[1].to_dictionary()
         self.assertEqual(dictionary1, sq1.to_dictionary())
         self.assertEqual(dictionary2, sq2.to_dictionary())
-

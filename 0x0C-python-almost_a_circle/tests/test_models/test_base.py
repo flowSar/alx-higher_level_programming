@@ -70,6 +70,13 @@ class TestBase(unittest.TestCase):
         file_name = Rectangle.__name__
         result = os.path.exists(f"{file_name}.json")
         self.assertTrue(result)
+        
+        Rectangle.save_to_file([])
+        result = Rectangle.load_from_file()
+        self.assertEqual(result, [])
+        Rectangle.save_to_file(None)
+        result = Rectangle.load_from_file()
+        self.assertEqual(result, [])
 
     def test_from_json_string(self):
         """this function for test from_json_string method

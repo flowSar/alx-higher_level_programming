@@ -97,6 +97,14 @@ class TestSquare(unittest.TestCase):
         file_name = Square.__name__
         result = os.path.exists(f"{file_name}.json")
         self.assertTrue(result)
+        
+        Square.save_to_file([])
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+        Square.save_to_file(None)
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+        
 
     def test_create(self):
         """this method for test create methode from base class"""
