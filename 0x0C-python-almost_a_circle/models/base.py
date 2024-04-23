@@ -119,9 +119,10 @@ class Base:
                 list pf dummy object ot Null if file empty
         """
         file_name = cls.__name__
-        if not os.path.exists(file_name):
+        if not os.path.exists(f"{file_name}.json"):
             return []
         dummy_obj_list = []
+
         with open(f"{file_name}.json") as file:
             json_data = json.load(file)
         json_data = cls.from_json_string(cls.to_json_string(json_data))
