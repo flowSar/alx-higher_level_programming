@@ -5,6 +5,7 @@
     class: base
 """
 import json
+import os
 
 
 class Base:
@@ -118,6 +119,8 @@ class Base:
                 list pf dummy object ot Null if file empty
         """
         file_name = cls.__name__
+        if not os.path.exists(file_name):
+                return []
         dummy_obj_list = []
         with open(f"{file_name}.json") as file:
             json_data = json.load(file)
