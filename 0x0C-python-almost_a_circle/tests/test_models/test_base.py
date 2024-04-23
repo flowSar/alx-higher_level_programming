@@ -14,7 +14,7 @@ class TestBase(unittest.TestCase):
         this class for testing all base methodes one by one
     """
 
-    def test_init(self):
+    def test_bade_id(self):
         """
             this function for testing object id
             incremented
@@ -63,7 +63,3 @@ class TestBase(unittest.TestCase):
     def test_from_json_string(self):
         """this function for teting from_json_string function"""
         pass
-
-
-if __name__ == '__main__':
-    unittest.main()
