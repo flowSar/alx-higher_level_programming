@@ -103,3 +103,38 @@ class TestSquare(unittest.TestCase):
         sq1 = Square(4, 7, 2)
         dummpy = Square.create(**{"size": 2})
         self.assertTrue((dummpy is not None))
+
+    def test_to_json_string(self):
+        """
+            this function for testing to_json_string and see the
+            return value of the function if it's like what we expected
+            we test 3 cses when input is None or empty list or full list
+        """
+        sqt = Square(7, 2, 8, 1)
+        dictionary = sqt.to_dictionary()
+        json_string = sqt.to_json_string(dictionary)
+        expected = """{"id": 1, "size": 7, "x": 2, "y": 8}"""
+        self.assertEqual(json_string, expected)
+
+        json_string2 = sqt.to_json_string(None)
+        expected2 = "[]"
+        self.assertEqual(json_string2, expected2)
+
+        json_string3 = sqt.to_json_string([])
+        expected3 = "[]"
+        self.assertEqual(json_string3, expected3)
+
+    def test_from_json_string(self):
+        """this function for test from_json_string method
+            if its can turn string into json object
+        """
+        sqt = Square(7, 2, 8)
+        result = sqt.from_json_string(None)
+        self.assertEqual(result, [])
+        list_input = [
+                    {'id': 89, 'size': 4},
+                    {'id': 7, 'size': 7}
+                    ]
+        json_list_input = sqt.to_json_string(list_input)
+        list_output = sqt.from_json_string(json_list_input)
+        self.assertEqual(list_input, list_output)
