@@ -120,7 +120,7 @@ class Base:
         """
         file_name = cls.__name__
         if not os.path.exists(file_name):
-                return []
+            return []
         dummy_obj_list = []
         with open(f"{file_name}.json") as file:
             json_data = json.load(file)
