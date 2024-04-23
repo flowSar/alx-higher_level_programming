@@ -3,6 +3,7 @@
     this module for testing rectangle module
 """
 import unittest
+import os
 from models.rectangle import Rectangle
 from models.rectangle import check_for_exception
 
@@ -15,9 +16,9 @@ class TestRectangle(unittest.TestCase):
     """
     def test_init(self):
         rect = Rectangle(1, 4)
-        self.assertEqual(rect.id, 13)
+        self.assertEqual(rect.id, 14)
         rect1 = Rectangle(1, 4)
-        self.assertEqual(rect1.id, 14)
+        self.assertEqual(rect1.id, 15)
         rect = Rectangle(4, 2, 1, 2, 5)
         self.assertEqual(rect.id, 5)
 
@@ -219,3 +220,50 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         dummpy = r1.create(**{"width": 2, "height": 2})
         self.assertTrue((dummpy is not None))
+
+    def test_to_json_string(self):
+        """
+            this function for testing to_json_string and see the
+            return value of the function if it's like what we expected
+            we test 3 cses when input is None or empty list or full list
+        """
+        rect = Rectangle(10, 7, 2, 8, 1)
+        dictionary = rect.to_dictionary()
+        json_string = rect.to_json_string(dictionary)
+        expected = """{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}"""
+        self.assertEqual(json_string, expected)
+
+        json_string2 = rect.to_json_string(None)
+        expected2 = "[]"
+        self.assertEqual(json_string2, expected2)
+
+        json_string3 = rect.to_json_string([])
+        expected3 = "[]"
+        self.assertEqual(json_string3, expected3)
+
+    def test_save_to_file(self):
+        """this function for testing save_to_file function
+            is working we check the file was created or not
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        file_name = Rectangle.__name__
+        result = os.path.exists(f"{file_name}.json")
+        self.assertTrue(result)
+
+    def test_from_json_string(self):
+        """this function for test from_json_string method
+            if its can turn string into json object
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        result = r1.from_json_string(None)
+        self.assertEqual(result, [])
+        list_input = [
+                    {'id': 89, 'width': 10, 'height': 4},
+                    {'id': 7, 'width': 1, 'height': 7}
+                    ]
+        json_list_input = r1.to_json_string(list_input)
+        list_output = r1.from_json_string(json_list_input)
+        self.assertEqual(list_input, list_output)
+
