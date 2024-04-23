@@ -16,9 +16,9 @@ class TestRectangle(unittest.TestCase):
     """
     def test_init(self):
         rect = Rectangle(1, 4)
-        self.assertEqual(rect.id, 14)
+        self.assertEqual(rect.id, 4)
         rect1 = Rectangle(1, 4)
-        self.assertEqual(rect1.id, 15)
+        self.assertEqual(rect1.id, 5)
         rect = Rectangle(4, 2, 1, 2, 5)
         self.assertEqual(rect.id, 5)
 
@@ -266,4 +266,19 @@ class TestRectangle(unittest.TestCase):
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)
+    
+        
+    def test_load_from_file(self):
+        """this function test loding from file if it's much 
+            object attribute
+        """
+        sq1 = Rectangle(4, 2, 1, 2)
+        sq2 = Rectangle(2, 4, 0)
+        list_rectangles_input = [sq1, sq2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_Rectangle_output = Rectangle.load_from_file()
+        dictionary1 = list_Rectangle_output[0].to_dictionary()
+        dictionary2 = list_Rectangle_output[1].to_dictionary()
+        self.assertEqual(dictionary1, sq1.to_dictionary())
+        self.assertEqual(dictionary2, sq2.to_dictionary())
 

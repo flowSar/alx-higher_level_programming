@@ -138,3 +138,18 @@ class TestSquare(unittest.TestCase):
         json_list_input = Square.to_json_string(list_input)
         list_output = Square.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)
+        
+    def test_load_from_file(self):
+        """this function test loding from file if it's much 
+            object attribute
+        """
+        sq1 = Square(4, 2, 1)
+        sq2 = Square(2, 4, 0)
+        list_rectangles_input = [sq1, sq2]
+        Square.save_to_file(list_rectangles_input)
+        list_square_output = Square.load_from_file()
+        dictionary1 = list_square_output[0].to_dictionary()
+        dictionary2 = list_square_output[1].to_dictionary()
+        self.assertEqual(dictionary1, sq1.to_dictionary())
+        self.assertEqual(dictionary2, sq2.to_dictionary())
+
