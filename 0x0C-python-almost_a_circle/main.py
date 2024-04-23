@@ -1,31 +1,36 @@
 #!/usr/bin/python3
 """ Check """
-from models.square import Square
-import os
-import json
+from models.rectangle import Rectangle
 
+input_dict = { 'width': 2, 'height': 3 }
+new_rect = Rectangle.create(**input_dict)
 
-file_path = "Square.json"
-if os.path.exists(file_path):
-    os.remove(file_path)
-
-list_objs = None
-expected_list = []
-Square.save_to_file(list_objs)
-
-if not os.path.exists(file_path):
-    print("save_to_file doesn't create a file {}".format(file_path))
+if new_rect is None:
+    print("Rectangle.create doesn't create a new Rectangle")
     exit(1)
 
-with open(file_path, "r") as file:
-    list_json = json.load(file)
+if type(new_rect) is not Rectangle:
+    print("Rectangle.create doesn't create a new Rectangle: {}".format(new_rect))
+    exit(1)
 
-    if list_json is None:
-        print("Can't parse {} file".format(file_path))
-        exit(1)
-    
-    if expected_list != list_json:
-        print("Wrong serialization: {} instead of {}".format(list_json, expected_list))
-        exit(1)
+if new_rect.id != input_dict.get('id', 1):
+    print("New Rectangle doesn't have the right ID: {}".format(new_rect.id))
+    exit(1)
+
+if new_rect.width != input_dict['width']:
+    print("New Rectangle doesn't have the right width: {}".format(new_rect.width))
+    exit(1)
+
+if new_rect.height != input_dict['height']:
+    print("New Rectangle doesn't have the right height: {}".format(new_rect.height))
+    exit(1)
+
+if new_rect.x != input_dict.get('x', 0):
+    print("New Rectangle doesn't have the right x: {}".format(new_rect.x))
+    exit(1)
+
+if new_rect.y != input_dict.get('y', 0):
+    print("New Rectangle doesn't have the right y: {}".format(new_rect.y))
+    exit(1)
 
 print("OK", end="")

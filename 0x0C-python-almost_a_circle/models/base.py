@@ -96,7 +96,7 @@ class Base:
                 return dummy object
         """
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 2, 2, 6)
+            dummy = cls(1, 2, 0, 0)
             dummy.update(**dictionary)
             return dummy
         if cls.__name__ == "Square":
