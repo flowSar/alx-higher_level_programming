@@ -29,7 +29,6 @@ class TestSquare(unittest.TestCase):
         sq = Square(size=4, x=1, y=1, id=9)
         self.assertEqual(sq.size, 4)
 
-
     def test_area(self):
         """ this test funcion for testing area if it was calculte
             right
