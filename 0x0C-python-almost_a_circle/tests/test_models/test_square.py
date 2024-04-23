@@ -112,15 +112,15 @@ class TestSquare(unittest.TestCase):
         """
         sqt = Square(7, 2, 8, 1)
         dictionary = sqt.to_dictionary()
-        json_string = sqt.to_json_string(dictionary)
+        json_string = Square.to_json_string(dictionary)
         expected = """{"id": 1, "size": 7, "x": 2, "y": 8}"""
         self.assertEqual(json_string, expected)
 
-        json_string2 = sqt.to_json_string(None)
+        json_string2 = Square.to_json_string(None)
         expected2 = "[]"
         self.assertEqual(json_string2, expected2)
 
-        json_string3 = sqt.to_json_string([])
+        json_string3 = Square.to_json_string([])
         expected3 = "[]"
         self.assertEqual(json_string3, expected3)
 
@@ -129,12 +129,12 @@ class TestSquare(unittest.TestCase):
             if its can turn string into json object
         """
         sqt = Square(7, 2, 8)
-        result = sqt.from_json_string(None)
+        result = Square.from_json_string(None)
         self.assertEqual(result, [])
         list_input = [
                     {'id': 89, 'size': 4},
                     {'id': 7, 'size': 7}
                     ]
-        json_list_input = sqt.to_json_string(list_input)
-        list_output = sqt.from_json_string(json_list_input)
+        json_list_input = Square.to_json_string(list_input)
+        list_output = Square.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)

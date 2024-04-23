@@ -218,7 +218,7 @@ class TestRectangle(unittest.TestCase):
     def test_create(self):
         """this method for test create methode from base class"""
         r1 = Rectangle(10, 7, 2, 8)
-        dummpy = r1.create(**{"width": 2, "height": 2})
+        dummpy = Rectangle.create(**{"width": 2, "height": 2})
         self.assertTrue((dummpy is not None))
 
     def test_to_json_string(self):
@@ -229,15 +229,15 @@ class TestRectangle(unittest.TestCase):
         """
         rect = Rectangle(10, 7, 2, 8, 1)
         dictionary = rect.to_dictionary()
-        json_string = rect.to_json_string(dictionary)
+        json_string = Rectangle.to_json_string(dictionary)
         expected = """{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}"""
         self.assertEqual(json_string, expected)
 
-        json_string2 = rect.to_json_string(None)
+        json_string2 = Rectangle.to_json_string(None)
         expected2 = "[]"
         self.assertEqual(json_string2, expected2)
 
-        json_string3 = rect.to_json_string([])
+        json_string3 = Rectangle.to_json_string([])
         expected3 = "[]"
         self.assertEqual(json_string3, expected3)
 
@@ -257,13 +257,13 @@ class TestRectangle(unittest.TestCase):
             if its can turn string into json object
         """
         r1 = Rectangle(10, 7, 2, 8)
-        result = r1.from_json_string(None)
+        result = Rectangle.from_json_string(None)
         self.assertEqual(result, [])
         list_input = [
                     {'id': 89, 'width': 10, 'height': 4},
                     {'id': 7, 'width': 1, 'height': 7}
                     ]
-        json_list_input = r1.to_json_string(list_input)
-        list_output = r1.from_json_string(json_list_input)
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)
 
