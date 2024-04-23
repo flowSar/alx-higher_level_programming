@@ -63,3 +63,7 @@ class TestBase(unittest.TestCase):
     def test_from_json_string(self):
         """this function for teting from_json_string function"""
         pass
+
+
+if __name__ == '__main__':
+    unittest.main()
