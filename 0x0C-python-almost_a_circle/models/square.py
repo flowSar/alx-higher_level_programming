@@ -68,3 +68,6 @@ class Square(Rectangle):
         this function return all obkect instance attribute in a dictionary
         """
         return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+    @classmethod
+    def prt(cls):
+        print(cls.size)
