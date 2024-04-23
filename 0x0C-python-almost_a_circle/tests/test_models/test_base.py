@@ -4,6 +4,7 @@
     it methodes
 """
 import unittest
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -60,9 +61,27 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_string3, expected3)
 
     def test_save_to_file(self):
-        """this function for teting save_to_file function"""
-        pass
+        """this function for testing save_to_file function
+            is working we check the file was created or not
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        file_name = Rectangle.__name__
+        result = os.path.exists(f"{file_name}.json")
+        self.assertTrue(result)
 
     def test_from_json_string(self):
-        """this function for teting from_json_string function"""
-        pass
+        """this function for test from_json_string method
+            if its can turn string into json object
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        result = r1.from_json_string(None)
+        self.assertEqual(result, [])
+        list_input = [
+                    {'id': 89, 'width': 10, 'height': 4},
+                    {'id': 7, 'width': 1, 'height': 7}
+                    ]
+        json_list_input = r1.to_json_string(list_input)
+        list_output = r1.from_json_string(json_list_input)
+        self.assertEqual(list_input, list_output)
