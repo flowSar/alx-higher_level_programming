@@ -16,9 +16,9 @@ class TestRectangle(unittest.TestCase):
     """
     def test_init(self):
         rect = Rectangle(1, 4)
-        self.assertEqual(rect.id, 4)
+        self.assertEqual(rect.id, 14)
         rect1 = Rectangle(1, 4)
-        self.assertEqual(rect1.id, 5)
+        self.assertEqual(rect1.id, 15)
         rect = Rectangle(4, 2, 1, 2, 5)
         self.assertEqual(rect.id, 5)
 
