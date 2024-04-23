@@ -102,8 +102,8 @@ class TestSquare(unittest.TestCase):
         result = Square.load_from_file()
         self.assertEqual(result, [])
         Square.save_to_file(None)
-        result = Square.load_from_file()
-        self.assertEqual(result, [])
+        result2 = Square.load_from_file()
+        self.assertEqual(result2, [])
         
 
     def test_create(self):
@@ -160,4 +160,3 @@ class TestSquare(unittest.TestCase):
         dictionary2 = list_square_output[1].to_dictionary()
         self.assertEqual(dictionary1, sq1.to_dictionary())
         self.assertEqual(dictionary2, sq2.to_dictionary())
-

@@ -266,10 +266,9 @@ class TestRectangle(unittest.TestCase):
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)
-    
-        
+
     def test_load_from_file(self):
-        """this function test loding from file if it's much 
+        """this function test loding from file if it's much
             object attribute
         """
         sq1 = Rectangle(4, 2, 1, 2)
