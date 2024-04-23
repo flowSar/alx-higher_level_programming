@@ -1,59 +1,86 @@
 #!/usr/bin/python3
-""" Check """
-from models.rectangle import Rectangle
-from models.base import Base
-import os
-import json
-import random
+""" Doc """
+import os, sys
+import subprocess
 
 
-file_path = "Rectangle.json"
-if os.path.exists(file_path):
-    os.remove(file_path)
-
-list_objs = []
-for i in range(0, 5):
-    list_objs.append(Rectangle(random.randrange(1, 100, 2), random.randrange(1, 100, 2), random.randrange(1, 100, 2), random.randrange(1, 100, 2)))
-    
-Rectangle.save_to_file(list_objs)
-
-list_objs_res = Rectangle.load_from_file()
+def run_command(cmd):
+    process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
+    return "{}{}".format(output, error)
 
 
-if list_objs_res is None:
-    print("load_from_file doesn't return a list")
+def run_unittest():
+    nb_tests = 0
+    is_success = False
+    try:
+        res = run_command("python3 -m unittest discover tests")
+        for line in res.split("\\n"):
+            if "Ran " in line:
+                nb_tests = int(res.split("Ran ")[-1].split(" tests")[0])
+            if nb_tests > 0 and "OK" in line:
+                is_success = True
+    except:
+        nb_tests = 0
+        is_success = False
+    return nb_tests, is_success
+
+
+# validate tests are passing by default
+nb_tests, passing = run_unittest()
+
+if nb_tests <= 0:
+    print("No test found")
+    exit(1)
+if not passing:
+    print("Regular tests are not passing")
     exit(1)
 
-if len(list_objs_res) != len(list_objs):
-    print("load_from_file doesn't return a list")
+file_path_to_update = "models/base.py"
+file_path_updated = "models/tmp_base.py"
+if not os.path.exists(file_path_to_update):
+    print("{} not found".format(file_path_to_update))
     exit(1)
 
-for i in range(0, len(list_objs)):
-    obj = list_objs[i]
-    if i >= len(list_objs_res):
-        print("load_from_file doesn't return all objects")
-        exit(1)
-    
-    obj_res = list_objs_res[i]
-    
-    if obj_res.id != obj.id:
-        print("Rectangle {} not found".format(obj))
-        exit(1)    
+try:
+    # Move file
+    if os.path.exists(file_path_updated):
+        os.remove(file_path_updated)
+    os.rename(file_path_to_update, file_path_updated)
 
-    if obj_res.width != obj.width:
-        print("Rectangle {} doesn't match with the original: {}".format(obj_res, obj))
-        exit(1)    
+    # update file
+    new_content = """#!/usr/bin/python3
+\"\"\" Random documentation \"\"\"
+from models.tmp_base import Base
 
-    if obj_res.height != obj.height:
-        print("Rectangle {} doesn't match with the original: {}".format(obj_res, obj))
-        exit(1)    
 
-    if obj_res.x != obj.x:
-        print("Rectangle {} doesn't match with the original: {}".format(obj_res, obj))
-        exit(1)    
+class Base(Base):
+    \"\"\" Random documentation \"\"\"
 
-    if obj_res.y != obj.y:
-        print("Rectangle {} doesn't match with the original: {}".format(obj_res, obj))
-        exit(1)    
+    def __init__(self, id=None):
+        \"\"\" Random documentation \"\"\"
+        if id is None:
+            self.id = 89
+        else:
+            super().__init__(id)
+"""    
+
+    with open(file_path_to_update, "w") as file:
+        file.write(new_content)
+
+    # run tests
+    nb_tests, passing = run_unittest()
+    if nb_tests <= 0:
+        print("No test found")
+    if passing:
+        print("No test found for this case")
+except:
+    print("An error occured... {}".format(sys.exc_info()[0]))
+
+# rollback file
+if os.path.exists(file_path_updated):
+    if os.path.exists(file_path_to_update):
+        os.remove(file_path_to_update)
+    os.rename(file_path_updated, file_path_to_update)
 
 print("OK", end="")

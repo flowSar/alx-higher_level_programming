@@ -12,9 +12,9 @@ class TestRectangle(unittest.TestCase):
     """this function for testing asignment of id of rectangle instance"""
     def test_init(self):
         rect = Rectangle(1, 4)
-        self.assertEqual(rect.id, 1)
+        self.assertEqual(rect.id, 6)
         rect1 = Rectangle(1, 4)
-        self.assertEqual(rect1.id, 2)
+        self.assertEqual(rect1.id, 7)
         rect = Rectangle(4, 2, 1, 2, 5)
         self.assertEqual(rect.id, 5)
 

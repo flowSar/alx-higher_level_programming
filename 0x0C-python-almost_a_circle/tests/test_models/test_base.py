@@ -13,6 +13,9 @@ class TestBase(unittest.TestCase):
     """
         this class for testing all base methodes one by one
     """
+    def test__init__(self):
+        """ initiliaze object"""
+        pass
 
     def test_bade_id(self):
         """
