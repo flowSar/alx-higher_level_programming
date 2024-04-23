@@ -89,6 +89,5 @@ class TestBase(unittest.TestCase):
     def test_create(self):
         """this method for test create methode from base class"""
         r1 = Rectangle(10, 7, 2, 8)
-        dummpy = Rectangle.create(**{"width":2, "height":2})
-        self.assertTrue((dummpy != None))
-        
+        dummpy = Rectangle.create(**{"width": 2, "height": 2})
+        self.assertTrue((dummpy is not None))
