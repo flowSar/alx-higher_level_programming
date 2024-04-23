@@ -97,3 +97,9 @@ class TestSquare(unittest.TestCase):
         file_name = Square.__name__
         result = os.path.exists(f"{file_name}.json")
         self.assertTrue(result)
+
+    def test_create(self):
+        """this method for test create methode from base class"""
+        sq1 = Square(4, 7, 2)
+        dummpy = Square.create(**{"size": 2})
+        self.assertTrue((dummpy is not None))

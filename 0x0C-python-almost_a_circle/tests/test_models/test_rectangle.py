@@ -15,9 +15,9 @@ class TestRectangle(unittest.TestCase):
     """
     def test_init(self):
         rect = Rectangle(1, 4)
-        self.assertEqual(rect.id, 11)
+        self.assertEqual(rect.id, 13)
         rect1 = Rectangle(1, 4)
-        self.assertEqual(rect1.id, 12)
+        self.assertEqual(rect1.id, 14)
         rect = Rectangle(4, 2, 1, 2, 5)
         self.assertEqual(rect.id, 5)
 
@@ -213,3 +213,9 @@ class TestRectangle(unittest.TestCase):
         result = rect.to_dictionary()
         dictionary = {"id": 23, "width": 4, "height": 2, "x": 1, "y": 2}
         self.assertEqual(result, dictionary)
+
+    def test_create(self):
+        """this method for test create methode from base class"""
+        r1 = Rectangle(10, 7, 2, 8)
+        dummpy = r1.create(**{"width": 2, "height": 2})
+        self.assertTrue((dummpy is not None))
