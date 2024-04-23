@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    this module is for testtunite of base class and all 
+    this module is for testtunite of base class and all
     it methodes
 """
 import unittest

@@ -7,7 +7,6 @@ from models.rectangle import Rectangle
 from models.rectangle import check_for_exception
 
 
-
 class TestRectangle(unittest.TestCase):
 
     """this function for testing asignment of id of rectangle instance"""
