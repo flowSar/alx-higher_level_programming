@@ -6,6 +6,9 @@
 """
 import json
 import os
+from turtle import Turtle, Screen
+import turtle
+import random as r
 
 
 class Base:
@@ -194,3 +197,84 @@ class Base:
                     new_dic[key] = int(value)
                 object_list.append(cls.create(**new_dic))
         return object_list
+
+    @staticmethod
+    def draw_rectangle(t, rect):
+        """
+            this function for drawing a rectangle for each rectangle object
+            that was to this method according to it's width and height and
+            coordinates (x, y)
+            and working of this method is simple and straightforward
+
+            Attributes:
+                t: turtule object
+                rect rectangle object
+        """
+        t.color(r.randint(0, 255), r.randint(0, 255), r.randint(0, 255))
+        t.goto(rect.x, rect.y)
+        t.pendown()
+        t.forward(rect.width)
+        t.left(90)
+        t.forward(rect.height)
+        t.left(90)
+        t.forward(rect.width)
+        t.left(90)
+        t.forward(rect.height)
+        t.penup()
+
+    @staticmethod
+    def draw_square(t, sqt):
+        """
+            this function for drawing a square for each square object
+            that was to this method according to it's width and height and
+            coordinates (x, y)
+            and working of this method is simple and straightforward
+
+            Attributes:
+                t: turtule object
+                rect square object
+        """
+        t.color(r.randint(0, 255), r.randint(0, 255), r.randint(0, 255))
+        t.goto(sqt.x, sqt.y)
+        t.pendown()
+        t.forward(sqt.size)
+        t.left(90)
+        t.forward(sqt.size)
+        t.left(90)
+        t.forward(sqt.size)
+        t.left(90)
+        t.forward(sqt.size)
+        t.penup()
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+            this draw function create instance from turtule and open screen
+            so we can draw our square and rectangle
+            iside thismethod we call two method one for drawing square and
+            second for drawing rectangle and we pass two argument to ech one,
+            (turtle object, square or rectangle object)
+
+            Attributes:
+                list_rectangles: list of Rectangle object
+                list_squares: list of square object
+        """
+
+        t = Turtle()
+        t = Turtle()
+        t.goto(0, 0)
+        screen = Screen()
+        t.penup()
+        turtle.colormode(255)
+        t.pensize(3)
+
+        for rect in list_rectangles:
+            t.setheading(0)
+            Base.draw_rectangle(t, rect)
+            t.penup()
+
+        for sqt in list_squares:
+            t.setheading(0)
+            Base.draw_square(t, sqt)
+            t.penup()
+        screen.exitonclick()
