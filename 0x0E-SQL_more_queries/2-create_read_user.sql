@@ -1,7 +1,6 @@
--- create a new user 
+-- create a new database and grant SELECT permmision to a new user
 
-IF NOT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'user_0d_1' AND host = 'localhost') THEN
-    CREATE USER 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
-    GRANT ALL PRIVILEGES ON *.* TO 'new_user'@'localhost';
-    FLUSH PRIVILEGES;
-END IF;
+CREATE DATABASE hbtn_0d_2;
+CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
+GRANT SELECT ON hbtn_0d_2 TO 'user_0d_1'@'localhost';
+FLUSH PRIVILEGES;
