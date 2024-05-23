@@ -1,4 +1,5 @@
 -- listing granted permession for users 
 
-SHOW GRANTS FOR 'user_0d_1'@'hostname';
-SHOW GRANTS FOR 'user_0d_2'@'hostname';
+SELECT * 
+FROM mysql.user 
+WHERE user IN ('user_0d_1', 'user_0d_2');
