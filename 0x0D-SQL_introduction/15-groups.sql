@@ -1,3 +1,6 @@
--- group input 
+-- list score with count for each one
 
-SELECT * FROM first_table;
+SELECT score, COUNT(*) AS number
+FROM second_table
+GROUP BY score
+ORDER BY number DESC;
