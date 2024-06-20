@@ -2,5 +2,5 @@
 
 arg=$1
 
-semistandard $arg
+npx semistandard --fix $arg
 
