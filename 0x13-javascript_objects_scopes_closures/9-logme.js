@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-let list = []
+const list = [];
 exports.logMe = function (item) {
   list.push(item);
   console.log(`${list.indexOf(item)}: ${item}`);
-}
+};
