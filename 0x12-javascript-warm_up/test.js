@@ -1,9 +1,8 @@
 #!/usr/bin/node
 
-function fun() {
-    console.log(b);
+function fun () {
+  console.log(b);
 }
-
 
 const b = 17;
 fun();
