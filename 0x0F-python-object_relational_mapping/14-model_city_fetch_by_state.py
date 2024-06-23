@@ -12,7 +12,8 @@ import sys
 
 def main():
     """this function is for executing this the code for
-    fetching table states"""
+        fetching table states
+    """
     args = sys.argv[1:]
     passwrd = args[1]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
@@ -30,4 +31,5 @@ def main():
 
 
 if __name__ == '__main__':
+    """execute main function"""
     main()
