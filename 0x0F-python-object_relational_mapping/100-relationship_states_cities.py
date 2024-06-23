@@ -4,8 +4,8 @@
     this module is for adding one state and one city
     and linking them with each other
 """
-from model_city import Base, City
-from model_state import State
+from relationship_city import Base, City
+from relationship_state import State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import sys
@@ -26,8 +26,10 @@ def main():
     session = sessionmaker(bind=engine)()
 
     state = State(name='California')
-    city = City(name='San Francisco', state_id=1)
     session.add(state)
+    session.commit()
+
+    city = City(name='San Francisco', state_id=state.id)
     session.add(city)
     session.commit()
 
