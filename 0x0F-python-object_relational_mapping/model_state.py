@@ -20,7 +20,8 @@ class State(Base):
 
 if __name__ == '__main__':
     args = sys.argv[1:]
+    passwrd = args[1]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(args[0], args[1],
+                           .format(args[0], passwrd,
                                    args[2]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
