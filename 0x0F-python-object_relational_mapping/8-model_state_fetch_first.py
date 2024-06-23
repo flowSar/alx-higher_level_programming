@@ -21,8 +21,9 @@ def main():
     Base.metadata.create_all(engine)
 
     session = sessionmaker(bind=engine)()
-    states = session.query(State).filter_by(id=1)
-    print(f"{states[0].id}: {states[0].name}")
+    states = session.query(State).filter_by(id=1).all()
+    if (states):
+        print(f"{states[0].id}: {states[0].name}")
 
 
 if __name__ == '__main__':
