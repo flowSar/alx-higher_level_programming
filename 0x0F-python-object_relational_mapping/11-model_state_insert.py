@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 """this module is for connecting to mysql database
     and and inserting new state to states table
 """
