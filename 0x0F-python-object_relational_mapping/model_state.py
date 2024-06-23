@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 """this module is for connecting to mysql database
 by using sqlalchemy module"""
 from sqlalchemy import create_engine, Column, String, Integer
@@ -22,5 +22,5 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(args[0], args[1],
-                                   rgs[2]), pool_pre_ping=True)
+                                   args[2]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
