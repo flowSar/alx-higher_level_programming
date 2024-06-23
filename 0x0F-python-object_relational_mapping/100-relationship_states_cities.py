@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 
 """
     this module is for adding one state and one city
@@ -15,6 +15,7 @@ def main():
     """this function is for addting one state and one city
         and linking them with each other
     """
+
     args = sys.argv[1:]
     passwrd = args[1]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
@@ -29,8 +30,8 @@ def main():
     session.add(state)
     session.commit()
 
-    city = City(name='San Francisco', state_id=state.id)
-    session.add(city)
+    new_city = City(state_id=state.id, name='San Francisco')
+    session.add(new_city)
     session.commit()
 
 
