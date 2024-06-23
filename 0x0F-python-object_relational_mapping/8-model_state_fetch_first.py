@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 """this module is for connecting to mysql database
     and fetching all data from state table
     by using sqlalchemy module
@@ -21,9 +21,8 @@ def main():
     Base.metadata.create_all(engine)
 
     session = sessionmaker(bind=engine)()
-    states = session.query(State).all()
-    if (states):
-        print(f"{states[0].id}: {states[0].name}")
+    states = session.query(State).filter_by(id=1)
+    print(f"{states[0].id}: {states[0].name}")
 
 
 if __name__ == '__main__':
