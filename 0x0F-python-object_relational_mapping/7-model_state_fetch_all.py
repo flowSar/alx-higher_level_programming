@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 """this module is for connecting to mysql database
     and fetching all data from state table
     by using sqlalchemy module
