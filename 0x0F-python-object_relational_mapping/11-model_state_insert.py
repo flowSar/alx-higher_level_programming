@@ -25,7 +25,7 @@ def main():
     session = sessionmaker(bind=engine)()
     session.add(new_state)
     session.commit()
-
+    print(new_state.id)
 
 if __name__ == '__main__':
     """execute main"""
