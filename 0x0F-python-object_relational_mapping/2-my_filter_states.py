@@ -10,8 +10,8 @@ def main():
     db = MySQLdb.connect(host="localhost", port=3306, user=f"{args[0]}",
                          passwd=f"{args[1]}", db=f"{args[2]}", charset="utf8")
     cursor = db.cursor()
-    cursor.execute(f"select * from states WHERE name='{args[3]}'\
-                   ORDER BY states.id")
+    cursor.execute("select * from states WHERE name='{}'\
+                   ORDER BY states.id".format(args[3]))
     query_rows = cursor.fetchall()
     for row in query_rows:
         print(row)
