@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 
 """
     this module is for query data from two tables that have
@@ -33,7 +33,7 @@ def main():
         for city in state.cities:
             print(f"    {city.id}: {city.name}")
 
-    session.close()
+    session.closse()
 
 
 if __name__ == '__main__':
