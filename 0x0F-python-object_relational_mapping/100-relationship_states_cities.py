@@ -26,13 +26,16 @@ def main():
 
     session = sessionmaker(bind=engine)()
 
-    state = State(name='California')
-    session.add(state)
+    new_state = State(name='California')
+    session.add(new_state)
     session.commit()
 
-    new_city = City(state_id=state.id, name='San Francisco')
+    # new_city = City(state_id=state.id, name='San Francisco')
+    new_city = City(name='San Francisco')
+    new_state.cities.append(new_city)
     session.add(new_city)
     session.commit()
+    session.close()
 
 
 if __name__ == '__main__':
