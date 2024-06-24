@@ -4,7 +4,7 @@
 by using sqlalchemy module"""
 from sqlalchemy import create_engine, Column, String, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 import sys
 
 Base = declarative_base()
@@ -19,6 +19,7 @@ class City(Base):
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id',
                                           ondelete='CASCADE'), nullable=False)
+    state = relationship('State', back_populates='cities')
 
 
 if __name__ == '__main__':

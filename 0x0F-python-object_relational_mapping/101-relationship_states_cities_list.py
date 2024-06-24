@@ -7,7 +7,7 @@
 from relationship_city import Base, City
 from relationship_state import State
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, joinedload
 import sys
 
 
@@ -27,11 +27,10 @@ def main():
     session = sessionmaker(bind=engine)()
     Base.metadata.create_all(engine)
 
-    states = session.query(State).all()
+    states = session.query(State).options(joinedload(State.cities)).all()
     for state in states:
         print(f"{state.id}: {state.name}")
-        cities = session.query(City).filter(state.id == City.state_id).all()
-        for city in cities:
+        for city in state.cities:
             print(f"    {city.id}: {city.name}")
 
     session.close()
