@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 """this module if for querying data from databbase order by id"""
 import MySQLdb
 import sys
@@ -11,7 +11,7 @@ def main():
     db = MySQLdb.connect(host="localhost", port=3306, user=f"{args[0]}",
                          passwd=f"{args[1]}", db=f"{args[2]}", charset="utf8")
     cursor = db.cursor()
-    cursor.execute("select * from states WHERE name LIKE\
+    cursor.execute("select * from states WHERE BINARY name LIKE\
         'N%' ORDER BY states.id")
     query_rows = cursor.fetchall()
     for row in query_rows:
