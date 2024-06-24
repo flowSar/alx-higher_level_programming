@@ -13,7 +13,7 @@ import sys
 
 def main():
     """
-        this module is for query data from two tables that have
+        this module is for query data from  two tables that have
         a relationship and print this data
     """
     args = sys.argv[1:]
