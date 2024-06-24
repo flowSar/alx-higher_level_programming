@@ -10,7 +10,7 @@ def main():
     db = MySQLdb.connect(host="localhost", port=3306, user=f"{args[0]}",
                          passwd=f"{args[1]}", db=f"{args[2]}", charset="utf8")
     cursor = db.cursor()
-    cursor.execute("select * from states WHERE name='{}'\
+    cursor.execute("select * from states WHERE BINARY name='{}'\
                    ORDER BY states.id".format(args[3]))
     query_rows = cursor.fetchall()
     for row in query_rows:
