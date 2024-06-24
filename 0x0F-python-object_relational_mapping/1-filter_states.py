@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 """this module if for querying data from databbase order by id"""
 import MySQLdb
 import sys
