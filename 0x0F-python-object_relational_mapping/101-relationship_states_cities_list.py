@@ -10,6 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import sys
 
+
 def main():
     """
         this module is for query data from two tables that have
@@ -20,11 +21,12 @@ def main():
     passwd = args[1]
     db = args[2]
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(user, passwd, db))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(user, passwd, db))
 
     session = sessionmaker(bind=engine)()
     Base.metadata.create_all(engine)
-    
+
     states = session.query(State).all()
     for state in states:
         print(f"{state.id}: {state.name}")
@@ -32,8 +34,8 @@ def main():
         for city in cities:
             print(f"    {city.id}: {city.name}")
 
-
     session.close()
+
 
 if __name__ == '__main__':
     main()
