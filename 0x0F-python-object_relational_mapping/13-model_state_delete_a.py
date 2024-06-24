@@ -27,7 +27,8 @@ def main():
     if states:
         for state in states:
             session.delete(state)
-            session.commit()
+        session.commit()
+    session.close()
 
 
 if __name__ == '__main__':
