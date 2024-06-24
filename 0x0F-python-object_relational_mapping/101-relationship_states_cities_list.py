@@ -1,13 +1,13 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 
 """
     this module is for query data from two tables that have
     a relationship with ech other
 """
-from relationship_city import Base, City
 from relationship_state import State
+from relationship_city import Base, City
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload
+from sqlalchemy.orm import sessionmaker, joinedload, relationship
 import sys
 
 
