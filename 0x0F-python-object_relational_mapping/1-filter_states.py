@@ -6,7 +6,7 @@ import sys
 
 def main():
     """main method from queryring states
-    from database where name start with N"""
+    from database where name start with N upercase"""
     args = sys.argv[1:]
     db = MySQLdb.connect(host="localhost", port=3306, user=f"{args[0]}",
                          passwd=f"{args[1]}", db=f"{args[2]}", charset="utf8")
