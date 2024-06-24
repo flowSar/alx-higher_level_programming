@@ -24,6 +24,8 @@ def main():
     states = session.query(State).first()
     if (states):
         print(f"{states.id}: {states.name}")
+    else:
+        print('Nothing')
 
 
 if __name__ == '__main__':
