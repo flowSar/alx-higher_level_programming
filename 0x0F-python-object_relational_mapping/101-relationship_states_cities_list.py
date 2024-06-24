@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 
 """
     this module is for query data from two tables that have
@@ -7,7 +7,7 @@
 from relationship_state import State
 from relationship_city import Base, City
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload, relationship
+from sqlalchemy.orm import sessionmaker
 import sys
 
 
@@ -27,13 +27,13 @@ def main():
     session = sessionmaker(bind=engine)()
     Base.metadata.create_all(engine)
 
-    states = session.query(State).options(joinedload(State.cities)).all()
+    states = session.query(State).all()
     for state in states:
         print(f"{state.id}: {state.name}")
         for city in state.cities:
             print(f"    {city.id}: {city.name}")
 
-    session.closse()
+    session.close()
 
 
 if __name__ == '__main__':
