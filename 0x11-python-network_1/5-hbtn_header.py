@@ -10,7 +10,8 @@ def main():
     try:
         re = requests.get(url)
         request_id = re.headers['X-Request-Id']
-        print(request_id)
+        if re.status_code == 200:
+            print(request_id)
     except requests.RequestException as e:
         pass
 
