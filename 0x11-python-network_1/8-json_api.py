@@ -23,7 +23,8 @@ def main():
         elif not isinstance(json_data, dict):
             print('Not a valid JSON')
         else:
-            print(f"[{json_data['id']}] {json_data['name']}")
+            for k, v in json_data.items():
+                print(f"[{k}] {v}")
     except requests.RequestException as e:
         pass
 
