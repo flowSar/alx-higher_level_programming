@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""POST request"""
+"""POST requestusing urllib"""
 import urllib.request
 import sys
 
