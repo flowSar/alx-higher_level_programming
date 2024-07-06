@@ -9,7 +9,7 @@ def main():
     url = sys.argv[1:][0]
     try:
         re = requests.get(url)
-        request_id = re.headers['X-Request-Id']
+        request_id = re.headers.get('X-Request-Id')
         if re.status_code == 200:
             print(f"{request_id}")
     except requests.RequestException as e:
