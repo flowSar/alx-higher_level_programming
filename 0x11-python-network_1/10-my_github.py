@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    """use Github API to get ID or a user that passed to
+    """use Github API to get ID or a user that passed
     """
     username = sys.argv[1:][0]
     password = sys.argv[1:][1]
@@ -15,7 +15,7 @@ def main():
     if json_data == 0:
         print('None')
     else:
-        print(f'{json_data['id']}')
+        print(json_data['id'])
 
 
 if __name__ == '__main__':
