@@ -8,10 +8,10 @@ def main():
     url = 'https://alx-intranet.hbtn.io/status'
     with urllib.request.urlopen(url) as response:
         body = response.read()
-        result = """Body response:\n\t- type: {}
-        - content: {}\n\t- utf8 content: {}"""\
-        .format(type(body), body, body.decode('utf-8'))
-        print(result)
+        print('Body response:')
+        print("\t- type: {}".format(type(body)))
+        print("\t- content: {}".format(body))
+        print("\t- utf8 content: {}".format(body.decode('utf-8')))
 
 
 if __name__ == '__main__':
