@@ -9,16 +9,14 @@ def main():
     """
     username = sys.argv[1:][0]
     password = sys.argv[1:][1]
-    url = 'https://api.github.com/octocat'
-    headers = {
-        'Authorization': f'Bearer {password}',
-        'X-GitHub-Api-Version': '2022-11-28'
-    }
+    url = 'https://api.github.com/user'
     try:
-        re = requests.get(url, headers=headers)
+        re = requests.post(url, auth=(username, password))
         if re.status_code == 200:
             user_data = re.json()
             print(f'{user_data['id']}')
+        else:
+            print(None)
     except Exception as e:
         pass
 
