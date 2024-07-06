@@ -11,10 +11,10 @@ def main():
     password = sys.argv[1:][1]
     url = 'https://api.github.com/user'
     try:
-        re = requests.post(url, auth=HTTPBasicAuth(username, token))
+        re = requests.post(url, auth=(username, password))
         if re.status_code == 200:
             user_data = re.json()
-            print(f'user_data{user_data['id']}')
+            print(f'{user_data['id']}')
     except Exception as e:
         pass
 
