@@ -10,7 +10,7 @@ def main():
     email = sys.argv[1:][1]
     try:
         data = {'email': email}
-        re = requests.post(url, json=data)
+        re = requests.post(url, data)
         print(f"Your email is: {re.text}")
     except requests.RequestException as e:
         pass
