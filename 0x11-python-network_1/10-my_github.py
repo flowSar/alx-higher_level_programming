@@ -10,7 +10,7 @@ def main():
     username = sys.argv[1:][0]
     password = sys.argv[1:][1]
     url = 'https://api.github.com/user'
-    re = requests.post(url, auth=(username, password))
+    re = requests.get(url, auth=(username, password))
     json_data = re.json()
     if len(json_data) == 0:
         print(None)
