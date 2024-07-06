@@ -13,8 +13,8 @@ def main():
     if len(sys.argv) > 1:
         letter = sys.argv[1:][0]
 
-    data = {'q': letter}
-    re = requests.post(url, data)
+    Data = {'q': letter}
+    re = requests.post(url, data=data)
     try:
         json_data = re.json()
 
