@@ -15,15 +15,18 @@ def main():
 
     data = {'q': letter}
     re = requests.post(url, data)
-    json_data = re.json()
+    try:
+        json_data = re.json()
 
-    if len(json_data) == 0:
-        print('No result')
-    elif not isinstance(json_data, dict):
+        if len(json_data) == 0:
+            print('No result')
+        elif not isinstance(json_data, dict):
+            print('Not a valid JSON')
+        else:
+            for k, v in json_data.items():
+                print(f"[{k}] {v}")
+    except ValueError:
         print('Not a valid JSON')
-    else:
-        for k, v in json_data.items():
-            print(f"[{k}] {v}")
 
 
 if __name__ == '__main__':
