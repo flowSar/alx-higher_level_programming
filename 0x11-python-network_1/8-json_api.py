@@ -9,24 +9,21 @@ def main():
         and fetch json data
     """
     url = 'http://0.0.0.0:5000/search_user'
-    if len(sys.argv) == 1:
-        letter = ''
-    else:
+    letter = ""
+    if len(sys.argv) > 1:
         letter = sys.argv[1:][0]
-    try:
-        data = {'q': letter}
-        re = requests.post(url, json=data)
-        json_data = re.json()
 
-        if len(json_data) == 0:
-            print('No result')
-        elif not isinstance(json_data, dict):
-            print('Not a valid JSON')
-        else:
-            for k, v in json_data.items():
-                print(f"[{k}] {v}")
-    except requests.RequestException as e:
-        pass
+    data = {'q': letter}
+    re = requests.post(url, data)
+    json_data = re.json()
+
+    if len(json_data) == 0:
+        print('No result')
+    elif not isinstance(json_data, dict):
+        print('Not a valid JSON')
+    else:
+        for k, v in json_data.items():
+            print(f"[{k}] {v}")
 
 
 if __name__ == '__main__':
