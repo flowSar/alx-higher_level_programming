@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    """use Github API to get ID or a user that passed
+    """use Github API to get ID or a user that passed to
     """
     username = sys.argv[1:][0]
     password = sys.argv[1:][1]
