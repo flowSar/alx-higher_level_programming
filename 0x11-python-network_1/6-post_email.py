@@ -10,7 +10,7 @@ def main():
     email = sys.argv[1:][1]
     data = {'email': email}
     re = requests.post(url, data)
-    print(f"Your email is: {re.text}")
+    print(f"{re.text}")
 
 
 if __name__ == '__main__':
