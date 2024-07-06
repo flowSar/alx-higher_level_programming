@@ -13,8 +13,11 @@ def main():
     re = requests.get(url)
     data = re.json()
     for json_data in data:
-        author_name = json_data['commit']['author']['name']
-        print(f"{json_data['sha']}: {author_name}")
+        try:
+            author_name = json_data['commit']['author']['name']
+            print(f"{json_data.get('sha')}: {author_name}")
+        except KeyError:
+            pass
 
 
 if __name__ == '__main__':
