@@ -14,7 +14,7 @@ def main():
     data = re.json()
     for json_data in data:
         author_name = json_data['commit']['author']['name']
-        print(f"{json_data['sha']} {author_name}")
+        print(f"{json_data['sha']}: {author_name}")
 
 
 if __name__ == '__main__':
