@@ -8,12 +8,9 @@ def main():
     """send a POST request to the passed URL with the email as a parameter"""
     url = sys.argv[1:][0]
     email = sys.argv[1:][1]
-    try:
-        data = {'email': email}
-        re = requests.post(url, data)
-        print(f"Your email is: {re.text}")
-    except requests.RequestException as e:
-        pass
+    data = {'email': email}
+    re = requests.post(url, data)
+    print(f"Your email is: {re.text}")
 
 
 if __name__ == '__main__':
