@@ -15,7 +15,7 @@ def main():
     if json_data == 0:
         print('None')
     else:
-        print('{json_data['id']}')
+        print(f'{json_data['id']}')
 
 
 if __name__ == '__main__':
