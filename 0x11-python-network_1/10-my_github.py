@@ -12,8 +12,8 @@ def main():
     url = 'https://api.github.com/user'
     re = requests.get(url, auth=(username, password))
     json_data = re.json()
-    if len(json_data) == 0:
-        print(None)
+    if json_data == 0:
+        print('None')
     else:
         print(json_data['id'])
 
