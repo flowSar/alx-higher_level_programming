@@ -14,7 +14,7 @@ def main():
         req = urllib.request.Request(url, encoded_data)
         with urllib.request.urlopen(req) as response:
             body = response.read().decode('utf-8')
-            print(f"Your email is: {body}")
+            print(f"{body}")
 
     except urllib.error.HTTPError as e:
         pass
