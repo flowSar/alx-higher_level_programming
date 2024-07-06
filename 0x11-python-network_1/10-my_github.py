@@ -4,20 +4,11 @@ import requests
 import sys
 
 
-def main():
-    """use Github API to get ID or a user that passed
-    """
-    username = sys.argv[1:][0]
-    password = sys.argv[1:][1]
+if __name__ == "__main__":
     url = 'https://api.github.com/user'
-    re = requests.post(url, auth=(username, password))
-    if re.status_code == 200:
-        json_data = re.json()
-        if len(json_data) == 0:
-            print(None)
-        else:
-            print(json_data['id'])
-
-
-if __name__ == '__main__':
-    main()
+    r = requests.get(url, auth=(sys.argv[1], sys.argv[2]))
+    r_json = r.json()
+    if r_json == {}:
+        print("None")
+    else:
+        print("{}".format(r_json.get('id')))
