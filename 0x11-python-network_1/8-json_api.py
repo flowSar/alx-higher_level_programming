@@ -23,8 +23,7 @@ def main():
         elif not isinstance(json_data, dict):
             print('Not a valid JSON')
         else:
-            for k, v in json_data.items():
-                print(f"[{k}] {v}")
+            print(f"[{json_data['id']}] {json_data['name']}")
     except ValueError:
         print('Not a valid JSON')
 
