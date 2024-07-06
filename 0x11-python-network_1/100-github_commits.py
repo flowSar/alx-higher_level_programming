@@ -5,8 +5,7 @@ import sys
 
 
 def main():
-    """use Github API to get fetch commits owner and sha
-    """
+    """use Github API to get fetch commits owner and sha"""
     repo = sys.argv[1:][0]
     owner = sys.argv[1:][1]
     url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
