@@ -1,3 +1,3 @@
 #!/bin/bash
 # sends a GET request to the URL, and displays the body of the response
-curl -s -w "%{http_code}" -o response.txt http://$1 | awk 'NR==1 && $0=="200" { system("cat response.txt") }'
+curl -s -L -o /dev/null -w "%{html_body}" "$1" | grep -q "^200 " && cat || true
