@@ -1,3 +1,3 @@
 #!/bin/bash
 # send delete with URL as first argument
-curl -s -d "DELETE" "$1"
+curl -s -x "DELETE" "$1"
